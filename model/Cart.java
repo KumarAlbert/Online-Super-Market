@@ -7,7 +7,7 @@ package model;
  * @author Mukilan.K
  *
  * @version 1.0
- * <p> Cart class acts as a model which represents cart details
+ * <p> Cart class acts as a model which represents cart details.
  */
 public class Cart {
     private int id;
