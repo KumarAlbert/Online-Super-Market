@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="model.User" table="User">
+      <meta attribute="class-description">
+         This class contains the user detail. 
+      </meta>
+      <id name="id" type="int" column="id">
+   
+      </id>
+      <set name="roles" cascade="save-update" table="User_Role">
+         <key column="userId"/>
+         <many-to-many column="roleId" class="Role"/>
+      </set>
+      <property name="firstName" column="firstName" type="string"/>
+      <property name="lastName" column="lastName" type="string"/>
+      <property name="email" column="email" type="string"/>
+      <property name="mobileNumber" column="mobileNumber" type="long"/>
+      <property name="password" column="password" type="string"/>
+      <property name="address" column="address" type="string"/>
+      <property name="createdBy" column="createdBy" type="int"/>
+      <property name="createdAt" column="createdAt" type="time"/>
+      <property name="modifiedBy" column="modifiedBy" type="int"/>
+      <property name="modifiedAt" column="modifiedAt" type="time"/>
+      <set name="orders" table="PurchaseOrder" 
+				inverse="true" lazy="false" fetch="select">
+            <key column="userId"/>
+            <one-to-many class="model.PurchaseOrder" />
+      </set>
+   </class>
+   
+  <class name="model.Role" table="Role">
+      <meta attribute="class-description">
+         This class contains the user detail. 
+      </meta>
+      <id name="id" type="int" column="id">
+   
+      </id>
+      <property name="name" column="name" type="string"/>
+   </class>
+</hibernate-mapping>
