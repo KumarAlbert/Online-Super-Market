@@ -3,10 +3,13 @@
  */
 package model;
 
+import java.sql.Time;
+
 /**
  * @author Kumar Albert
  *
  * version 1.0
+ * <p> The Project class acts as a model which represents Project details</p>
  * 
  */
 public class Project {
@@ -16,77 +19,89 @@ public class Project {
 	private int subcategoryId;
 	private String imageUrl;
 	private int stock;
-	/**
-	 * @return the id
-	 */
+	private int createdBy;
+	private Time createdAt;
+	private int updatedBy;
+	private Time updatedAt;
+
 	public int getId() {
 		return id;
 	}
-	/**
-	 * @param id the id to set
-	 */
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	/**
-	 * @return the name
-	 */
+
 	public String getName() {
 		return name;
 	}
-	/**
-	 * @param name the name to set
-	 */
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	/**
-	 * @return the description
-	 */
+
 	public String getDescription() {
 		return description;
 	}
-	/**
-	 * @param description the description to set
-	 */
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	/**
-	 * @return the subcategoryId
-	 */
+
 	public int getSubcategoryId() {
 		return subcategoryId;
 	}
-	/**
-	 * @param subcategoryId the subcategoryId to set
-	 */
+
 	public void setSubcategoryId(int subcategoryId) {
 		this.subcategoryId = subcategoryId;
 	}
-	/**
-	 * @return the imageUrl
-	 */
+
 	public String getImageUrl() {
 		return imageUrl;
 	}
-	/**
-	 * @param imageUrl the imageUrl to set
-	 */
+
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
-	/**
-	 * @return the stock
-	 */
+
 	public int getStock() {
 		return stock;
 	}
-	/**
-	 * @param stock the stock to set
-	 */
+
 	public void setStock(int stock) {
 		this.stock = stock;
+	}
+
+	public int getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(int createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Time getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Time createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public int getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(int updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public Time getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Time updatedAt) {
+		this.updatedAt = updatedAt;
 	}
 
 }

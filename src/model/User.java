@@ -3,11 +3,13 @@
  */
 package model;
 
+import java.sql.Time;
+
 /**
  * @author Kumar Albert
  *
  * version 1.0
- * 
+ * <p> The User class acts as a model which represents User details</p>
  */
 public class User {
 	private int id;
@@ -17,89 +19,97 @@ public class User {
 	private long mobileNumber;
 	private String password;
 	private String address;
-	/**
-	 * @return the id
-	 */
+	private int createdBy;
+	private Time createdAt;
+	private int updatedBy;
+	private Time updatedAt;
+
 	public int getId() {
 		return id;
 	}
-	/**
-	 * @param id the id to set
-	 */
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	/**
-	 * @return the firstName
-	 */
+
 	public String getFirstName() {
 		return firstName;
 	}
-	/**
-	 * @param firstName the firstName to set
-	 */
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-	/**
-	 * @return the lastName
-	 */
+
 	public String getLastName() {
 		return lastName;
 	}
-	/**
-	 * @param lastName the lastName to set
-	 */
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	/**
-	 * @return the email
-	 */
+
 	public String getEmail() {
 		return email;
 	}
-	/**
-	 * @param email the email to set
-	 */
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	/**
-	 * @return the mobileNumber
-	 */
+
 	public long getMobileNumber() {
 		return mobileNumber;
 	}
-	/**
-	 * @param mobileNumber the mobileNumber to set
-	 */
+
 	public void setMobileNumber(long mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
-	/**
-	 * @return the password
-	 */
+
 	public String getPassword() {
 		return password;
 	}
-	/**
-	 * @param password the password to set
-	 */
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	/**
-	 * @return the address
-	 */
+
 	public String getAddress() {
 		return address;
 	}
-	/**
-	 * @param address the address to set
-	 */
+
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public int getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(int createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Time getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Time createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public int getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(int updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public Time getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Time updatedAt) {
+		this.updatedAt = updatedAt;
 	}
 
 }
