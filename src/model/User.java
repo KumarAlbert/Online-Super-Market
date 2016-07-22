@@ -3,6 +3,8 @@
  */
 package model;
 
+import java.sql.Time;
+
 /**
  * @author Kumar Albert
  *
@@ -17,6 +19,10 @@ public class User {
 	private long mobileNumber;
 	private String password;
 	private String address;
+	private int createdBy;
+	private Time createdAt;
+	private int updatedBy;
+	private Time updatedAt;
 
 	public int getId() {
 		return id;
@@ -72,6 +78,38 @@ public class User {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public int getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(int createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Time getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Time createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public int getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(int updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public Time getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Time updatedAt) {
+		this.updatedAt = updatedAt;
 	}
 
 }
