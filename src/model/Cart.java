@@ -3,121 +3,97 @@
  */
 package model;
 
+import java.sql.Time;
+
 /**
-<<<<<<< HEAD
+ * <p> Cart model object.
+ * <p>Contains various attributes of model and its getters and setters. 
  * @author Mukilan.K
  *
  * @version 1.0
- * <p> Cart class acts as a model which represents cart details.
-=======
- * @author ideas2it
- *
->>>>>>> master
+
  */
 public class Cart {
+	
     private int id;
     private int orderId;
     private int productId;
     private int quantity;
     private double totalPrice;
+    private Time createdAt;
+    private Time modifiedAt;
+    private int createdBy;
+    private int modifiedBy;
 
-<<<<<<< HEAD
-=======
-	/**
-	 * @return the id
-	 */
->>>>>>> master
 	public int getId() {
 		return id;
 	}
 
-<<<<<<< HEAD
-=======
-	/**
-	 * @param id the id to set
-	 */
->>>>>>> master
 	public void setId(int id) {
 		this.id = id;
 	}
 
-<<<<<<< HEAD
-=======
-	/**
-	 * @return the orderId
-	 */
->>>>>>> master
 	public int getOrderId() {
 		return orderId;
 	}
 
-<<<<<<< HEAD
-=======
-	/**
-	 * @param orderId the orderId to set
-	 */
->>>>>>> master
 	public void setOrderId(int orderId) {
 		this.orderId = orderId;
 	}
 
-<<<<<<< HEAD
-=======
-	/**
-	 * @return the productId
-	 */
->>>>>>> master
 	public int getProductId() {
 		return productId;
 	}
 
-<<<<<<< HEAD
-=======
-	/**
-	 * @param productId the productId to set
-	 */
->>>>>>> master
 	public void setProductId(int productId) {
 		this.productId = productId;
 	}
 
-<<<<<<< HEAD
-=======
-	/**
-	 * @return the quantity
-	 */
->>>>>>> master
 	public int getQuantity() {
 		return quantity;
 	}
 
-<<<<<<< HEAD
-=======
-	/**
-	 * @param quantity the quantity to set
-	 */
->>>>>>> master
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 
-<<<<<<< HEAD
-=======
-	/**
-	 * @return the totalPrice
-	 */
->>>>>>> master
 	public double getTotalPrice() {
 		return totalPrice;
 	}
 
-<<<<<<< HEAD
-=======
-	/**
-	 * @param totalPrice the totalPrice to set
-	 */
->>>>>>> master
 	public void setTotalPrice(double totalPrice) {
 		this.totalPrice = totalPrice;
+	}
+
+	public Time getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Time createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Time getModifiedAt() {
+		return modifiedAt;
+	}
+
+	public void setModifiedAt(Time modifiedAt) {
+		this.modifiedAt = modifiedAt;
+	}
+
+	public int getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(int createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public int getModifiedBy() {
+		return modifiedBy;
+	}
+
+	public void setModifiedBy(int modifiedBy) {
+		this.modifiedBy = modifiedBy;
 	}
 }

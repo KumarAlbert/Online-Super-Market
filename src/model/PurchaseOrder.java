@@ -6,17 +6,19 @@ package model;
 import java.sql.Time;
 
 /**
- * <p>Role model object>
+ * <p>Order model object>
  * <p>Contains various attributes of model and its getters and setters. 
  * @author Mukilan.K
  *
  * @version 1.0
-
  */
-public class Role {
+public class PurchaseOrder {
 	
     private int id;
-    private String name;
+    private int userId;
+    private double total;
+    private String paymentType;
+    private boolean status;
     private Time createdAt;
     private Time modifiedAt;
     private int createdBy;
@@ -30,12 +32,36 @@ public class Role {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	public double getTotal() {
+		return total;
+	}
+
+	public void setTotal(double total) {
+		this.total = total;
+	}
+
+	public String getPaymentType() {
+		return paymentType;
+	}
+
+	public void setPaymentType(String paymentType) {
+		this.paymentType = paymentType;
+	}
+
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 
 	public Time getCreatedAt() {
