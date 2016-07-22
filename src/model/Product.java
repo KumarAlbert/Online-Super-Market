@@ -12,7 +12,7 @@ import java.sql.Time;
  * <p> The Project class acts as a model which represents Project details</p>
  * 
  */
-public class Project {
+public class Product {
 	private int id;
 	private String name;
 	private String description;
