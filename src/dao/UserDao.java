@@ -18,6 +18,7 @@ import exception.ApplicationException;
  * @version 1.0
  */
 public class UserDao extends GenericDao{
+	
     public boolean insertUser(User user) throws ApplicationException {
         Session session = createSession();  
         Transaction transaction = null;
@@ -34,7 +35,7 @@ public class UserDao extends GenericDao{
         }
     }
     
-    public List<User> viewAllUsers() throws ApplicationException {
+    public List<User> retrieveUserDetails() throws ApplicationException {
         Session session = createSession(); 
         try {
             return session.createQuery("FROM User").list(); 
@@ -45,7 +46,7 @@ public class UserDao extends GenericDao{
         }
     }
     
-    public User viewAUser(String email) throws ApplicationException {
+    public User searchUserByEmail(String email) throws ApplicationException {
         Session session = createSession();  
         try {
             return (User)session.get(User.class, email);
@@ -57,7 +58,7 @@ public class UserDao extends GenericDao{
         }  
     }
     
-    public boolean updateUserDetails(User user) throws ApplicationException {
+    public boolean updateUser(User user) throws ApplicationException {
         Session session = createSession();
         Transaction transaction = null;
         try {
@@ -73,7 +74,7 @@ public class UserDao extends GenericDao{
         }
     }
     
-    public boolean deleteAUser(User user) throws ApplicationException {
+    public boolean deleteUser(User user) throws ApplicationException {
         Session session = createSession();
         Transaction transaction = null;
         try {

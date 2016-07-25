@@ -34,7 +34,7 @@ public class ProductDao extends GenericDao {
         }
     }
     
-    public List<Product> viewAllProducts() throws ApplicationException {
+    public List<Product> retrieveProductDetails() throws ApplicationException {
         Session session = createSession(); 
         try {
             return session.createQuery("FROM Product").list(); 
@@ -45,19 +45,19 @@ public class ProductDao extends GenericDao {
         }
     }
     
-    public Product viewAProduct(int id) throws ApplicationException {
+    public Product searchProductById(String name) throws ApplicationException {
         Session session = createSession();  
         try {
-            return (Product)session.get(Product.class, id);
+            return (Product)session.get(Product.class, name);
         } catch (HibernateException e) {
             throw new ApplicationException("Some error occured while viewing details of "
-                                            +id,e); 
+                                            +name,e); 
         } finally {
             closeSession(session); 
         }  
     }
     
-    public boolean updateProductDetails(Product product) throws ApplicationException {
+    public boolean updateProduct(Product product) throws ApplicationException {
         Session session = createSession();
         Transaction transaction = null;
         try {
@@ -67,13 +67,13 @@ public class ProductDao extends GenericDao {
             return true;
         } catch (HibernateException e) {
             throw new ApplicationException("Some error occured while updating details of "+ 
-            		                        product.getId(),e); 
+            		                        product.getName(),e); 
         } finally {
             closeSession(session); 
         }
     }
     
-    public boolean deleteAProduct(Product product) throws ApplicationException {
+    public boolean deleteProduct(Product product) throws ApplicationException {
         Session session = createSession();
         Transaction transaction = null;
         try {
@@ -83,7 +83,7 @@ public class ProductDao extends GenericDao {
             return true;
         } catch (HibernateException e) {
             throw new ApplicationException("Some error occured while deleting the details of "+
-            		                        product.getId(),e); 
+            		                        product.getName(),e); 
         } finally {
             closeSession(session); 
         }	

@@ -35,30 +35,30 @@ public class CategoryDao extends GenericDao {
         }
     }
     
-    public List<Category> viewAllCategorys() throws ApplicationException {
+    public List<Category> retrieveCategoryDetails() throws ApplicationException {
         Session session = createSession(); 
         try {
             return session.createQuery("FROM Category").list(); 
         } catch (HibernateException e) {
-            throw new ApplicationException("Some error occured while listing the details of all categorys",e); 
+            throw new ApplicationException("Some error occured while listing the details of all categories",e); 
         } finally {
             closeSession(session);  
         }
     }
     
-    public Category viewACategory(int id) throws ApplicationException {
+    public Category searchCategoryByName(String name) throws ApplicationException {
         Session session = createSession();  
         try {
-            return (Category)session.get(Category.class, id);
+            return (Category)session.get(Category.class, name);
         } catch (HibernateException e) {
             throw new ApplicationException("Some error occured while viewing details of "
-                                            +id,e); 
+                                            +name,e); 
         } finally {
             closeSession(session); 
         }  
     }
     
-    public boolean updateCategoryDetails(Category category) throws ApplicationException {
+    public boolean updateCategory(Category category) throws ApplicationException {
         Session session = createSession();
         Transaction transaction = null;
         try {
@@ -68,13 +68,13 @@ public class CategoryDao extends GenericDao {
             return true;
         } catch (HibernateException e) {
             throw new ApplicationException("Some error occured while updating details of "+ 
-            		                        category.getId(),e); 
+            		                        category.getName(),e); 
         } finally {
             closeSession(session); 
         }
     }
     
-    public boolean deleteACategory(Category category) throws ApplicationException {
+    public boolean deleteCategory(Category category) throws ApplicationException {
         Session session = createSession();
         Transaction transaction = null;
         try {
@@ -84,7 +84,7 @@ public class CategoryDao extends GenericDao {
             return true;
         } catch (HibernateException e) {
             throw new ApplicationException("Some error occured while deleting the details of "+
-            		                        category.getId(),e); 
+            		                        category.getName(),e); 
         } finally {
             closeSession(session); 
         }	
