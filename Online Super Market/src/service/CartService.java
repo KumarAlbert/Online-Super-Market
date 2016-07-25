@@ -6,10 +6,10 @@ package service;
 import java.sql.Time;
 
 
+
 import java.util.List;
 
 import model.Product;
-import model.PurchaseOrder;
 import model.Cart;
 import service.ProductService;
 import service.PurchaseOrderService;
@@ -34,19 +34,22 @@ public class CartService {
 		return cartDao.insertCart(cart);
 	}
 	
-	public Cart findCartByOrderId(int orderId) {
+	public List<Cart> getCartDetails() throws ApplicationException {
+		return cartDao.retrieveCartDetails();
+	}
+	public Cart findCartByOrderId(int orderId) throws ApplicationException {
 		return cartDao.searchCartByOrderId(orderId);
 	}
 	
-	public boolean modifyCartByOrderId(int orderId, Cart newCart) {
+	public boolean modifyCartByOrderId(int orderId, Cart newCart) throws ApplicationException {
 		Cart cart = cartDao.searchCartByOrderId(orderId);
-		cart.setProductId(newCart.getProductId());
+		cart.setProduct(newCart.getProduct());
 		cart.setQuantity(newCart.getQuantity());
 		cart.setTotalPrice(newCart.getTotalPrice());
 		return cartDao.updateCart(cart);
 	}
 	
-	public boolean removeCartByOrderId(int orderId) {
+	public boolean removeCartByOrderId(int orderId) throws ApplicationException {
 		Cart cart = cartDao.searchCartByOrderId(orderId);
 		return cartDao.deleteCart(cart);
 	}

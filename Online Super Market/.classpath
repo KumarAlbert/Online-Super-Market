@@ -27,5 +27,35 @@
 	<classpathentry kind="lib" path="/usr/share/java/mysql.jar"/>
 	<classpathentry kind="lib" path="/usr/share/java/mysql-connector-java.jar"/>
 	<classpathentry kind="lib" path="/usr/share/java/mysql-connector-java-5.1.28.jar"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/activation.jar"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/aop.zip"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/com.springsource.org.apache.commons.fileupload-1.2.0.jar"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/com.springsource.org.apache.commons.httpclient-3.1.0.jar"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/com.springsource.org.apache.commons.logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/com.springsource.org.apache.log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/com.springsource.org.codehaus.jackson.mapper-1.0.0.jar"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/core.zip"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/ibatis.zip"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/j2ee.zip"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/javaconfig.zip"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/jmxtools-1.2.1.jar"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/mail.jar"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/misc.zip"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/org.springframework.asm-3.0.1.RELEASE-A.jar"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/org.springframework.beans-3.0.1.RELEASE-A.jar"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/org.springframework.context-3.0.1.RELEASE-A.jar"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/org.springframework.core-3.0.1.RELEASE-A.jar"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/org.springframework.expression-3.0.1.RELEASE-A.jar"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/org.springframework.oxm-3.0.1.RELEASE-A.jar"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/org.springframework.web.portlet-3.0.1.RELEASE-A.jar"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/org.springframework.web.servlet-3.0.1.RELEASE-A.jar"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/org.springframework.web.struts-3.0.1.RELEASE-A.jar"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/org.springframework.web-3.0.1.RELEASE-A.jar"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/persistCore.zip"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/persistJdbc.zip"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/persistJDO.zip"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/remoting.zip"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/test.zip"/>
+	<classpathentry kind="lib" path="/home/ideas2it/Downloads/springjars/web.zip"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

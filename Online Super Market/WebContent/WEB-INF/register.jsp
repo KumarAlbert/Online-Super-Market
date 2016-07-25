@@ -7,6 +7,5 @@
 <title>User Registration</title>
 </head>
 <body>
-
-</body>
+	</body>
 </html>
