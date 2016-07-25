@@ -16,6 +16,7 @@ import model.Subcategory;
  */
 public class SubcategoryService {
 	
+	SubcategoryDao subcategoryDao = new SubcategoryDao();
 	public boolean addSubcategory(String name, int createdBy, Time createdAt,
 			int modifiedBy, Time modifiedAt) {
 		Subcategory subcategory = new Subcategory(name, categoryId, createdBy,
@@ -31,9 +32,11 @@ public class SubcategoryService {
 		return sucategoryDao.searchSubcategoryByName(name);
 	}
 	
-	public boolean modifySubcategoryNameByName(String oldName, String newName) {
+	public boolean modifySubcategoryNameByName(String oldName, String newName, int modifiedBy, Time modifiedAt) {
 		Subcategory subcategory = subcategoryDao.searchSubcategoryByName(oldName);
 		subcategory.setName(newName);
+		subcategory.setModifiedBy(modifiedBy);
+		subcategory.setModifiedAt(modifiedAt);
 		return categoryDao.updateCategory(subcategory);
 	}
 	

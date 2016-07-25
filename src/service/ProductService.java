@@ -15,8 +15,9 @@ import model.Product;
  */
 public class ProductService {
 	
+	ProductDao productDao = new ProductDao();
 	public boolean addProduct(String name, String description,int subcategoryId,String imageUrl,
-			int stock, int createdBy, Time createdAt, int modifiedBy, Time modifiedAt ) {
+			int stock, double price, int createdBy, Time createdAt, int modifiedBy, Time modifiedAt ) {
 		Product product = new Product(name, description, subcategoryId, imageUrl, stock, 
 				createdBy, createdAt, updatedBy, updatedAt);
 		return productDao.insertProduct(product);
@@ -30,33 +31,43 @@ public class ProductService {
 		return productDao.searchProductByName(name);
 	}
 	
-	public boolean modifyProductNameByName(String oldName, String newName ) {
+	public boolean modifyProductNameByName(String oldName, String newName, int modifiedBy, Time modifiedAt ) {
 	    Product product = productDao.searchProductByName(oldName);
 	    product.setName(newName);
+	    product.setModifiedBy(modifiedBy);
+	    product.setModifiedAt(modifiedAt);
 	    return productDao.updateProduct();
 	}
 	
-	public boolean modifyProductDescriptionByName(String name, String description ) {
+	public boolean modifyProductDescriptionByName(String name, String description, int modifiedBy, Time modifiedAt ) {
 	    Product product = productDao.searchProductByName(name);
 	    product.setDescription(description);
+	    product.setModifiedBy(modifiedBy);
+	    product.setModifiedAt(modifiedAt);
 	    return productDao.updateProduct();
 	}
 	
-	public boolean modifyProductImageUrlByName(String name, String imageUrl ) {
+	public boolean modifyProductImageUrlByName(String name, String imageUrl, int modifiedBy, Time modifiedAt ) {
 	    Product product = productDao.searchProductByName(name);
 	    product.setImageUrl(imageUrl);
+	    product.setModifiedBy(modifiedBy);
+	    product.setModifiedAt(modifiedAt);
 	    return productDao.updateProduct();
 	}
 	
-	public boolean modifyProductStockByName(String name, int stock ) {
+	public boolean modifyProductStockByName(String name, int stock, int modifiedBy, Time modifiedAt ) {
 	    Product product = productDao.searchProductByName(name);
 	    product.setStock(stock);
+	    product.setModifiedBy(modifiedBy);
+	    product.setModifiedAt(modifiedAt);
 	    return productDao.updateProduct();
 	}
 	
-	public boolean modifyProductPriceByName(String name, double price ) {
+	public boolean modifyProductPriceByName(String name, double price, int modifiedBy, Time modifiedAt ) {
 	    Product product = productDao.searchProductByName(name);
 	    product.setPrice(price);
+	    product.setModifiedBy(modifiedBy);
+	    product.setModifiedAt(modifiedAt);
 	    return productDao.updateProduct();
 	}
 	
