@@ -13,6 +13,7 @@ import org.hibernate.Session;
 import model.Subcategory;
 import exception.ApplicationException;
 /**
+ * <p> 
  * @author Mukilan.K
  *
  * @version 1.0
@@ -35,30 +36,30 @@ public class SubCategoryDao extends GenericDao {
         }
     }
     
-    public List<Subcategory> viewAllSubCategorys() throws ApplicationException {
+    public List<Subcategory> retrieveSubCategoryDetails() throws ApplicationException {
         Session session = createSession(); 
         try {
             return session.createQuery("FROM Subcategory").list(); 
         } catch (HibernateException e) {
-            throw new ApplicationException("Some error occured while listing the details of all categorys",e); 
+            throw new ApplicationException("Some error occured while listing the details of all categories",e); 
         } finally {
             closeSession(session);  
         }
     }
     
-    public Subcategory viewASubCategory(int id) throws ApplicationException {
+    public Subcategory searchSubCategoryByName(String name) throws ApplicationException {
         Session session = createSession();  
         try {
-            return (Subcategory)session.get(Subcategory.class, id);
+            return (Subcategory)session.get(Subcategory.class, name);
         } catch (HibernateException e) {
             throw new ApplicationException("Some error occured while viewing details of "
-                                            +id,e); 
+                                            +name,e); 
         } finally {
             closeSession(session); 
         }  
     }
     
-    public boolean updateSubCategoryDetails(Subcategory subcategory) throws ApplicationException {
+    public boolean updateSubCategory(Subcategory subcategory) throws ApplicationException {
         Session session = createSession();
         Transaction transaction = null;
         try {
@@ -68,13 +69,13 @@ public class SubCategoryDao extends GenericDao {
             return true;
         } catch (HibernateException e) {
             throw new ApplicationException("Some error occured while updating details of "+ 
-            		                        subcategory.getId(),e); 
+            		                        subcategory.getName(),e); 
         } finally {
             closeSession(session); 
         }
     }
     
-    public boolean deleteASubCategory(Subcategory subcategory) throws ApplicationException {
+    public boolean deleteSubCategory(Subcategory subcategory) throws ApplicationException {
         Session session = createSession();
         Transaction transaction = null;
         try {
@@ -84,7 +85,7 @@ public class SubCategoryDao extends GenericDao {
             return true;
         } catch (HibernateException e) {
             throw new ApplicationException("Some error occured while deleting the details of "+
-            		                        subcategory.getId(),e); 
+            		                        subcategory.getName(),e); 
         } finally {
             closeSession(session); 
         }	
