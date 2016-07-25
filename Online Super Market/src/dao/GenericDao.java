@@ -9,9 +9,9 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.Transaction;
 import org.hibernate.Session; 
 
-import logger.Logger;
-import exception.ApplicationException;
 
+import exception.ApplicationException;
+import logger.Logger;
 /**
  * <h1>GenericDao</h1>
  *     This class handles the hibernate connections for all Dao classes.
@@ -30,7 +30,7 @@ public class GenericDao {
             sessionFactory = new Configuration().configure().buildSessionFactory();
             System.out.println("Session factory opened");
         } catch (HibernateException e) {
-                Logger.appendToFile(e);
+                Logger.writeLog(e);
         } 
     }
 
@@ -42,7 +42,7 @@ public class GenericDao {
             try {
                 sessionFactory.close();
             } catch (HibernateException e) {
-            	GenericService.appendToFile(e);
+            	Logger.writeLog(e);
                 throw new ApplicationException("Problem occured !!",e);
             }
         }
