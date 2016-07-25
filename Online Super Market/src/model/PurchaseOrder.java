@@ -2,7 +2,7 @@
  * 
  */
 package model;
-
+import model.User;
 import java.sql.Time;
 
 /**
@@ -15,7 +15,7 @@ import java.sql.Time;
 public class PurchaseOrder {
 	
     private int id;
-    private int userId;
+    private User user;
     private double total;
     private String paymentType;
     private boolean status;
@@ -23,7 +23,7 @@ public class PurchaseOrder {
     private Time modifiedAt;
     private int createdBy;
     private int modifiedBy;
-
+    
 	/**
 	 * 
 	 */
@@ -41,9 +41,31 @@ public class PurchaseOrder {
 	 * @param createdBy
 	 * @param modifiedBy
 	 */
-	public PurchaseOrder(int userId, double total, String paymentType, boolean status, Time createdAt, Time modifiedAt,
+	public PurchaseOrder( double total, String paymentType, boolean status, Time createdAt, Time modifiedAt,
 			int createdBy, int modifiedBy) {
-		this.userId = userId;
+		this.total = total;
+		this.paymentType = paymentType;
+		this.status = status;
+		this.createdAt = createdAt;
+		this.modifiedAt = modifiedAt;
+		this.createdBy = createdBy;
+		this.modifiedBy = modifiedBy;
+	}
+
+
+	/**
+     * @param user
+	 * @param total
+	 * @param paymentType
+	 * @param status
+	 * @param createdAt
+	 * @param modifiedAt
+	 * @param createdBy
+	 * @param modifiedBy
+	 */
+	public PurchaseOrder(User user, double total, String paymentType, boolean status, Time createdAt, Time modifiedAt,
+			int createdBy, int modifiedBy) {
+		this.user = user;
 		this.total = total;
 		this.paymentType = paymentType;
 		this.status = status;
@@ -60,14 +82,6 @@ public class PurchaseOrder {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
 	}
 
 	public double getTotal() {
@@ -124,5 +138,15 @@ public class PurchaseOrder {
 
 	public void setModifiedBy(int modifiedBy) {
 		this.modifiedBy = modifiedBy;
+	}
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 }

@@ -4,7 +4,7 @@
 package model;
 
 import java.sql.Time;
-
+import model.Product;
 /**
  * <p> Cart model object.
  * <p>Contains various attributes of model and its getters and setters. 
@@ -15,9 +15,10 @@ import java.sql.Time;
  */
 public class Cart {
 	
-    private int id;
+
+	private int id;
     private int orderId;
-    private int productId;
+    private Product product;
     private int quantity;
     private double totalPrice;
     private Time createdAt;
@@ -32,8 +33,8 @@ public class Cart {
 	}
 
 	/**
-	 * @param orderId
-	 * @param productId
+	 * @param purchaseOrder
+	 * @param product
 	 * @param quantity
 	 * @param totalPrice
 	 * @param createdAt
@@ -41,10 +42,10 @@ public class Cart {
 	 * @param createdBy
 	 * @param modifiedBy
 	 */
-	public Cart(int orderId, int productId, int quantity, double totalPrice, Time createdAt, Time modifiedAt,
-			int createdBy, int modifiedBy) {
-		this.orderId = orderId;
-		this.productId = productId;
+	public Cart(int orderId, Product product, int quantity, double totalPrice, Time createdAt,
+			Time modifiedAt, int createdBy, int modifiedBy) {
+		this.setOrderId(orderId);
+		this.setProduct(product);
 		this.quantity = quantity;
 		this.totalPrice = totalPrice;
 		this.createdAt = createdAt;
@@ -54,7 +55,6 @@ public class Cart {
 	}
 
 
-
 	public int getId() {
 		return id;
 	}
@@ -62,23 +62,6 @@ public class Cart {
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	public int getOrderId() {
-		return orderId;
-	}
-
-	public void setOrderId(int orderId) {
-		this.orderId = orderId;
-	}
-
-	public int getProductId() {
-		return productId;
-	}
-
-	public void setProductId(int productId) {
-		this.productId = productId;
-	}
-
 	public int getQuantity() {
 		return quantity;
 	}
@@ -125,5 +108,21 @@ public class Cart {
 
 	public void setModifiedBy(int modifiedBy) {
 		this.modifiedBy = modifiedBy;
+	}
+
+	public int getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 }

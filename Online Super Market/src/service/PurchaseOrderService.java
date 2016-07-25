@@ -23,6 +23,7 @@ public class PurchaseOrderService {
 		return purchaseOrderDao.insertPurchaseOrder(purchaseOrder);
 	}
 	
+	
 	public List<PurchaseOrder> getPurchaseOrderDetails() {
 		return purchaseOrderDao.reterivePurchaseOrderDetails();
 	}	

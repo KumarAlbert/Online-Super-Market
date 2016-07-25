@@ -4,6 +4,7 @@
 package model;
 
 import java.sql.Time;
+import model.Category;
 
 /**
  * @author Kumar Albert
@@ -15,7 +16,7 @@ import java.sql.Time;
 public class Subcategory {
 	private int id;
 	private String name;
-	private int categoryId;
+	private Category category;
 	private int createdBy;
 	private Time createdAt;
 	private int modifiedBy;
@@ -27,22 +28,24 @@ public class Subcategory {
 	public Subcategory() {
 	}
 
+	
 	/**
 	 * @param name
-	 * @param categoryId
+	 * @param category
 	 * @param createdBy
 	 * @param createdAt
-	 * @param updatedBy
-	 * @param updatedAt
+	 * @param modifiedBy
+	 * @param modifiedAt
 	 */
-	public Subcategory(String name, int categoryId, int createdBy, Time createdAt, int modifiedBy, Time modifiedAt) {
+	public Subcategory(String name, Category category, int createdBy, Time createdAt, int modifiedBy, Time modifiedAt) {
 		this.name = name;
-		this.categoryId = categoryId;
+		this.category = category;
 		this.createdBy = createdBy;
 		this.createdAt = createdAt;
 		this.modifiedBy = modifiedBy;
 		this.modifiedAt = modifiedAt;
 	}
+
 
 	public int getId() {
 		return id;
@@ -58,14 +61,6 @@ public class Subcategory {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public int getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(int categoryId) {
-		this.categoryId = categoryId;
 	}
 
 	public int getCreatedBy() {
@@ -98,6 +93,14 @@ public class Subcategory {
 
 	public void setModifiedAt(Time modifiedAt) {
 		this.modifiedAt = modifiedAt;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 }

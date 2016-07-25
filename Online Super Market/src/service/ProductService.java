@@ -5,8 +5,11 @@ package service;
 
 import java.sql.Time;
 
+
 import java.util.List;
 import model.Product;
+import model.Subcategory;
+import service.SubcategoryService;
 import dao.ProductDao;
 import exception.ApplicationException;
 
@@ -18,11 +21,14 @@ import exception.ApplicationException;
  */
 public class ProductService {
 	
+	SubcategoryService subcategoryService = new SubcategoryService();
 	ProductDao productDao = new ProductDao();
-	public boolean addProduct(String name, String description,int subcategoryId,String imageUrl,int stock,
+	
+	public boolean addProduct(String name, String description,String subcategoryName,String imageUrl,int stock,
 			double price, int createdBy, Time createdAt, int modifiedBy, Time modifiedAt ) throws ApplicationException {
-		Product product = new Product(name, description, subcategoryId, imageUrl, stock, 
-				createdBy, modifiedBy, createdAt, modifiedBy, modifiedAt);
+		Subcategory subcategory = subcategoryService.findSubcategoryByName(subcategoryName);
+		Product product = new Product(name, description, subcategory, imageUrl, stock, createdBy,
+				modifiedBy, createdAt, modifiedBy, modifiedAt);
 		return productDao.insertProduct(product);
 	}
 	

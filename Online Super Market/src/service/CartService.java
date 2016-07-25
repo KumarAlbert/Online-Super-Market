@@ -5,9 +5,14 @@ package service;
 
 import java.sql.Time;
 
+
 import java.util.List;
 
+import model.Product;
+import model.PurchaseOrder;
 import model.Cart;
+import service.ProductService;
+import service.PurchaseOrderService;
 import dao.CartDao;
 import exception.ApplicationException;
 /**
@@ -18,11 +23,14 @@ import exception.ApplicationException;
  */
 public class CartService {
 	
+	ProductService productService = new ProductService();
+	PurchaseOrderService purchaseOrderService = new PurchaseOrderService();
 	CartDao cartDao = new CartDao();
-	public boolean addCart(int orderId, int productId, int quantity, double totalPrice,
+	public boolean addCart(int orderId, String productName, int quantity, double totalPrice,
 			int createdBy, Time createdAt, int modifiedBy, Time modifiedAt) throws ApplicationException {
-		Cart cart = new Cart(orderId, productId, quantity, totalPrice, 
-				createdAt, modifiedAt, createdBy, modifiedBy);
+		Product product = productService.findProductByName(productName);
+		Cart cart = new Cart(orderId, product, quantity, totalPrice, createdAt,
+				modifiedAt, createdBy, modifiedBy);
 		return cartDao.insertCart(cart);
 	}
 	

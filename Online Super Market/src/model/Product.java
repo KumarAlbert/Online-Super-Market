@@ -4,7 +4,7 @@
 package model;
 
 import java.sql.Time;
-
+import model.Subcategory;
 /**
  * @author Kumar Albert
  *
@@ -16,7 +16,7 @@ public class Product {
 	private int id;
 	private String name;
 	private String description;
-	private int subcategoryId;
+	private Subcategory subcategory;
 	private String imageUrl;
 	private int stock;
 	private double price;
@@ -24,30 +24,24 @@ public class Product {
 	private Time createdAt;
 	private int modifiedBy;
 	private Time modifiedAt;
-
-	/**
-	 * 
-	 */
-	public Product() {
-	}
-
+	
 	/**
 	 * @param name
 	 * @param description
-	 * @param subcategoryId
+	 * @param subcategory
 	 * @param imageUrl
 	 * @param stock
 	 * @param price
 	 * @param createdBy
 	 * @param createdAt
-	 * @param updatedBy
-	 * @param updatedAt
+	 * @param modifiedBy
+	 * @param modifiedAt
 	 */
-	public Product(String name, String description, int subcategoryId, String imageUrl, int stock,double price,
+	public Product(String name, String description, Subcategory subcategory, String imageUrl, int stock, double price,
 			int createdBy, Time createdAt, int modifiedBy, Time modifiedAt) {
 		this.name = name;
 		this.description = description;
-		this.subcategoryId = subcategoryId;
+		this.subcategory = subcategory;
 		this.imageUrl = imageUrl;
 		this.stock = stock;
 		this.price = price;
@@ -56,6 +50,13 @@ public class Product {
 		this.modifiedBy = modifiedBy;
 		this.modifiedAt = modifiedAt;
 	}
+
+	/**
+	 * 
+	 */
+	public Product() {
+	}
+	
 
 	public int getId() {
 		return id;
@@ -79,14 +80,6 @@ public class Product {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public int getSubcategoryId() {
-		return subcategoryId;
-	}
-
-	public void setSubcategoryId(int subcategoryId) {
-		this.subcategoryId = subcategoryId;
 	}
 
 	public String getImageUrl() {
@@ -143,6 +136,14 @@ public class Product {
 
 	public void setModifiedAt(Time modifiedAt) {
 		this.modifiedAt = modifiedAt;
+	}
+
+	public Subcategory getSubcategory() {
+		return subcategory;
+	}
+
+	public void setSubcategory(Subcategory subcategory) {
+		this.subcategory = subcategory;
 	}
 
 }

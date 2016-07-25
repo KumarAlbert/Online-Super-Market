@@ -5,9 +5,12 @@ package service;
 
 import java.sql.Time;
 
+
 import java.util.List;
 
+import model.Category;
 import model.Subcategory;
+import service.CategoryService;
 import dao.SubcategoryDao;
 import exception.ApplicationException;
 /**
@@ -24,6 +27,7 @@ import exception.ApplicationException;
  */
 public class SubcategoryService {
 	
+	CategoryService categoryService = new CategoryService();
 	SubcategoryDao subcategoryDao = new SubcategoryDao();
 	
 	/**
@@ -35,9 +39,10 @@ public class SubcategoryService {
 	 * @return boolean
 	 *             If Boolean value is true , record added successfully. Otherwise record didn't added.
 	 */
-	public boolean addSubcategory(String name,int categoryId, int createdBy, Time createdAt,
+	public boolean addSubcategory(String name,String categoryName, int createdBy, Time createdAt,
 			int modifiedBy, Time modifiedAt) throws ApplicationException {
-		Subcategory subcategory = new Subcategory(name, categoryId, createdBy, createdAt, modifiedBy, modifiedAt);
+		Category category = categoryService.findCategoryByName(name);
+		Subcategory subcategory = new Subcategory(name, category, createdBy, createdAt, modifiedBy, modifiedAt);
 		return subcategoryDao.insertSubcategory(subcategory);
 	}
 	
