@@ -21,8 +21,41 @@ public class User {
 	private String address;
 	private int createdBy;
 	private Time createdAt;
-	private int updatedBy;
-	private Time updatedAt;
+	private int modifiedBy;
+	private Time modifiedAt;
+
+	
+	/**
+	 * 
+	 */
+	public User() {
+	}
+
+	/**
+	 * @param firstName
+	 * @param lastName
+	 * @param email
+	 * @param mobileNumber
+	 * @param password
+	 * @param address
+	 * @param createdBy
+	 * @param createdAt
+	 * @param modifiedBy
+	 * @param modifiedAt
+	 */
+	public User(String firstName, String lastName, String email, long mobileNumber, String password, String address,
+			int createdBy, Time createdAt, int modifiedBy, Time modifiedAt) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.mobileNumber = mobileNumber;
+		this.password = password;
+		this.address = address;
+		this.createdBy = createdBy;
+		this.createdAt = createdAt;
+		this.modifiedBy = modifiedBy;
+		this.modifiedAt = modifiedAt;
+	}
 
 	public int getId() {
 		return id;
@@ -96,20 +129,20 @@ public class User {
 		this.createdAt = createdAt;
 	}
 
-	public int getUpdatedBy() {
-		return updatedBy;
+	public int getModifiedBy() {
+		return modifiedBy;
 	}
 
-	public void setUpdatedBy(int updatedBy) {
-		this.updatedBy = updatedBy;
+	public void setModifiedBy(int modifiedBy) {
+		this.modifiedBy = modifiedBy;
 	}
 
-	public Time getUpdatedAt() {
-		return updatedAt;
+	public Time getModifiedAt() {
+		return modifiedAt;
 	}
 
-	public void setUpdatedAt(Time updatedAt) {
-		this.updatedAt = updatedAt;
+	public void setModifiedAt(Time modifiedAt) {
+		this.modifiedAt = modifiedAt;
 	}
 
 }

@@ -17,8 +17,32 @@ public class Category {
 	private String name;
 	private int createdBy;
 	private Time createdAt;
-	private int updatedBy;
-	private Time updatedAt;
+	private int modifiedBy;
+	private Time modifiedAt;
+	
+	/**
+	 * 
+	 */
+	public Category() {
+	}
+	
+
+	/**
+	 * @param name
+	 * @param createdBy
+	 * @param createdAt
+	 * @param modifiedBy
+	 * @param modifiedAt
+	 */
+	public Category(String name, int createdBy, Time createdAt, int modifiedBy, Time modifiedAt) {
+		this.name = name;
+		this.createdBy = createdBy;
+		this.createdAt = createdAt;
+		this.modifiedBy = modifiedBy;
+		this.modifiedAt= modifiedAt;
+
+	}
+
 
 	public int getId() {
 		return id;
@@ -52,20 +76,24 @@ public class Category {
 		this.createdAt = createdAt;
 	}
 
-	public int getUpdatedBy() {
-		return updatedBy;
+	public int getModifiedBy() {
+		return modifiedBy;
 	}
 
-	public void setUpdatedBy(int updatedBy) {
-		this.updatedBy = updatedBy;
+
+	public void setModifiedBy(int modifiedBy) {
+		this.modifiedBy = modifiedBy;
 	}
 
-	public Time getUpdatedAt() {
-		return updatedAt;
+
+	public Time getModifiedAt() {
+		return modifiedAt;
 	}
 
-	public void setUpdatedAt(Time updatedAt) {
-		this.updatedAt = updatedAt;
+
+	public void setModifiedAt(Time modifiedAt) {
+		this.modifiedAt = modifiedAt;
 	}
+	
 
 }

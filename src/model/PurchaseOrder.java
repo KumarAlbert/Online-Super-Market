@@ -6,7 +6,7 @@ package model;
 import java.sql.Time;
 
 /**
- * <p>Order model object>
+ * <p>Order model object</p>
  * <p>Contains various attributes of model and its getters and setters. 
  * @author Mukilan.K
  *
@@ -23,6 +23,36 @@ public class PurchaseOrder {
     private Time modifiedAt;
     private int createdBy;
     private int modifiedBy;
+
+	/**
+	 * 
+	 */
+	public PurchaseOrder() {
+	}
+	
+
+	/**
+	 * @param userId
+	 * @param total
+	 * @param paymentType
+	 * @param status
+	 * @param createdAt
+	 * @param modifiedAt
+	 * @param createdBy
+	 * @param modifiedBy
+	 */
+	public PurchaseOrder(int userId, double total, String paymentType, boolean status, Time createdAt, Time modifiedAt,
+			int createdBy, int modifiedBy) {
+		this.userId = userId;
+		this.total = total;
+		this.paymentType = paymentType;
+		this.status = status;
+		this.createdAt = createdAt;
+		this.modifiedAt = modifiedAt;
+		this.createdBy = createdBy;
+		this.modifiedBy = modifiedBy;
+	}
+
 
 	public int getId() {
 		return id;

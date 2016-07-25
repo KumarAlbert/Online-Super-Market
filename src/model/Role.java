@@ -22,6 +22,27 @@ public class Role {
     private int createdBy;
     private int modifiedBy;
 
+	/**
+	 * 
+	 */
+	public Role() {
+	}
+
+	/**
+	 * @param name
+	 * @param createdAt
+	 * @param modifiedAt
+	 * @param createdBy
+	 * @param modifiedBy
+	 */
+	public Role(String name, Time createdAt, Time modifiedAt, int createdBy, int modifiedBy) {
+		this.name = name;
+		this.createdAt = createdAt;
+		this.modifiedAt = modifiedAt;
+		this.createdBy = createdBy;
+		this.modifiedBy = modifiedBy;
+	}
+
 	public int getId() {
 		return id;
 	}

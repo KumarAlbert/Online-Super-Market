@@ -25,6 +25,36 @@ public class Cart {
     private int createdBy;
     private int modifiedBy;
 
+	/**
+	 * 
+	 */
+	public Cart() {
+	}
+
+	/**
+	 * @param orderId
+	 * @param productId
+	 * @param quantity
+	 * @param totalPrice
+	 * @param createdAt
+	 * @param modifiedAt
+	 * @param createdBy
+	 * @param modifiedBy
+	 */
+	public Cart(int orderId, int productId, int quantity, double totalPrice, Time createdAt, Time modifiedAt,
+			int createdBy, int modifiedBy) {
+		this.orderId = orderId;
+		this.productId = productId;
+		this.quantity = quantity;
+		this.totalPrice = totalPrice;
+		this.createdAt = createdAt;
+		this.modifiedAt = modifiedAt;
+		this.createdBy = createdBy;
+		this.modifiedBy = modifiedBy;
+	}
+
+
+
 	public int getId() {
 		return id;
 	}

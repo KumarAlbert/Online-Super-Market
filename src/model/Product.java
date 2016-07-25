@@ -19,10 +19,43 @@ public class Product {
 	private int subcategoryId;
 	private String imageUrl;
 	private int stock;
+	private double price;
 	private int createdBy;
 	private Time createdAt;
-	private int updatedBy;
-	private Time updatedAt;
+	private int modifiedBy;
+	private Time modifiedAt;
+
+	/**
+	 * 
+	 */
+	public Product() {
+	}
+
+	/**
+	 * @param name
+	 * @param description
+	 * @param subcategoryId
+	 * @param imageUrl
+	 * @param stock
+	 * @param price
+	 * @param createdBy
+	 * @param createdAt
+	 * @param updatedBy
+	 * @param updatedAt
+	 */
+	public Product(String name, String description, int subcategoryId, String imageUrl, int stock,double price,
+			int createdBy, Time createdAt, int modifiedBy, Time modifiedAt) {
+		this.name = name;
+		this.description = description;
+		this.subcategoryId = subcategoryId;
+		this.imageUrl = imageUrl;
+		this.stock = stock;
+		this.price = price;
+		this.createdBy = createdBy;
+		this.createdAt = createdAt;
+		this.modifiedBy = modifiedBy;
+		this.modifiedAt = modifiedAt;
+	}
 
 	public int getId() {
 		return id;
@@ -72,6 +105,14 @@ public class Product {
 		this.stock = stock;
 	}
 
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
 	public int getCreatedBy() {
 		return createdBy;
 	}
@@ -88,20 +129,20 @@ public class Product {
 		this.createdAt = createdAt;
 	}
 
-	public int getUpdatedBy() {
-		return updatedBy;
+	public int getModifiedBy() {
+		return modifiedBy;
 	}
 
-	public void setUpdatedBy(int updatedBy) {
-		this.updatedBy = updatedBy;
+	public void setModifiedBy(int modifiedBy) {
+		this.modifiedBy = modifiedBy;
 	}
 
-	public Time getUpdatedAt() {
-		return updatedAt;
+	public Time getModifiedAt() {
+		return modifiedAt;
 	}
 
-	public void setUpdatedAt(Time updatedAt) {
-		this.updatedAt = updatedAt;
+	public void setModifiedAt(Time modifiedAt) {
+		this.modifiedAt = modifiedAt;
 	}
 
 }
