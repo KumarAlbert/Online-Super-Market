@@ -9,9 +9,8 @@
          This class contains the user detail. 
       </meta>
       <id name="id" type="int" column="id">
-   
       </id>
-      <set name="roles" cascade="save-update" table="User_Role">
+      <set name="roles" table="User_Role">
          <key column="userId"/>
          <many-to-many column="roleId" class="Role"/>
       </set>
@@ -37,8 +36,11 @@
          This class contains the user detail. 
       </meta>
       <id name="id" type="int" column="id">
-   
       </id>
       <property name="name" column="name" type="string"/>
+      <property name="createdBy" column="createdBy" type="int"/>
+      <property name="createdAt" column="createdAt" type="time"/>
+      <property name="modifiedBy" column="modifiedBy" type="int"/>
+      <property name="modifiedAt" column="modifiedAt" type="time"/>
    </class>
 </hibernate-mapping>

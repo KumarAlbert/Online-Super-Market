@@ -37,9 +37,10 @@ public class Product {
 	 * @param modifiedBy
 	 * @param modifiedAt
 	 */
-	public Product(String name, String description, Subcategory subcategory, String imageUrl, int stock, double price,
-			int createdBy, Time createdAt, int modifiedBy, Time modifiedAt) {
-		this.name = name;
+    public Product(String name, String description, Subcategory subcategory,
+    		       String imageUrl, int stock, double price,int createdBy,
+    		       Time createdAt, int modifiedBy, Time modifiedAt) {
+        this.name = name;
 		this.description = description;
 		this.subcategory = subcategory;
 		this.imageUrl = imageUrl;

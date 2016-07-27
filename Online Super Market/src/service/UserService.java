@@ -3,6 +3,9 @@
  */
 package service;
 
+import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.sql.Time;
 
 import java.util.List;
@@ -15,17 +18,13 @@ import model.User;
  * version 1.0
  * 
  */
+@Service ("userService")
 public class UserService {
 	
-	UserDao userDao = new UserDao();
+	@Autowired UserDao userDao;
 	
-	public boolean addUser(String firstName, String lastName, String email, long mobileNumber,
-			String password, String address,int createdBy, Time createdAt, 
-			int modifiedBy, Time modifiedAt ) throws ApplicationException {
-		User user = new User(firstName, lastName, email, mobileNumber, password, 
-				address, createdBy, createdAt, modifiedBy, modifiedAt);
+	public boolean addUser(User user) throws ApplicationException {
 		return userDao.insertUser(user);
-		
 	}
 	
 	public List<User> getUserDetails()throws ApplicationException {

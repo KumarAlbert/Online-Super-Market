@@ -3,6 +3,8 @@
  */
 package dao;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
 import org.hibernate.HibernateException; 
@@ -17,6 +19,7 @@ import exception.ApplicationException;
  *
  * @version 1.0
  */
+@Repository ("userDao")
 public class UserDao extends GenericDao{
 	
     public boolean insertUser(User user) throws ApplicationException {

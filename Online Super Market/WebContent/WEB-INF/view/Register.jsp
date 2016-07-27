@@ -19,7 +19,7 @@
 <div class="panel panel-primary">
   <div class="panel-heading">Sign Up</div>
  	<div class="panel-body">
-	<form:form method="POST" action="">
+	<form:form method="POST" modelAttribute="user" action="saveUser.html">
 	<div class="row">
 	<div class="col-sm-6">
   		<div class="form-group">
