@@ -11,7 +11,7 @@
   <script src="js/bootstrap.min.js"></script>
 </head>
 <body width="50%">
-<div id="header" class="well " style="background-color: #0059b3; color:white;font-size: 30px;padding-bottom: 0px;padding-top: 0px;height: 129px;border-top-width: 0px;width: 998px;">
+<div id="header" class="well " style="background-color: #0059b3; color:white;font-size: 30px;padding-bottom: 0px;padding-top: 0px;height: 129px;border-top-width: 0px;width: 100%;">
   <div class="row">
     <div class="col-sm-9">
      <table><tr><td><img src="images/icon.png" style="height: 143px;width: 165px;"/></td>
@@ -41,90 +41,29 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-2 sidenav">
-		<div class="dropdown">
-		    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Fruits&Vegtables</button>
+		<ul class="list-group" >
+  			<li class="list-group-item" style=" background-color:#0059b3;padding-left: 0px; padding-right: 0px;padding-top: 0px;padding-bottom: 0px;">
+  				<button class="btn btn-link dropdown-toggle" type="button" data-toggle="dropdown" style="color:white;">Fruits&Vegtables</button>
     			<ul class="dropdown-menu">
-       		     <li><a href="fruits.html"  target="iframe">Fruits</a></li>
-    			  <li><a href="#" target="iframe">Vegtables</a></li>
+       			     <li><a href="fruits.html"  target="iframe">Fruits</a></li>
+    				  <li><a href="#" target="">Vegtables</a></li>
     			</ul>
-			</div>
-		<div class="dropdown">
-    		<button class="btn btn-primary dropdown-toggle" style="padding-left: 11px;padding-right: 22px;" type="button" data-toggle="dropdown" >Flowers&Cakes</button>
-    		<ul class="dropdown-menu">
-	      		<li><a href="#" target="iframe">Flowers</a></li>
-    	  		<li><a href="#" target="iframe">Cakes</a></li>
+    		</li>
+			<li class="list-group-item" style="padding-left: 0px; padding-right: 0px;padding-top: 0px; background-color:#0059b3;padding-bottom: 0px;">
+  				<button class="btn btn-link dropdown-toggle" type="button" data-toggle="dropdown" style="color:white;">Flowers&Cakes</button>
+    			<ul class="dropdown-menu">
+       			     <li><a href=""  target="">Flowers</a></li>
+    				  <li><a href="#" target="">Cakes</a></li>
+    			</ul>
+		    </li>
+			<li class="list-group-item" style="padding-left: 0px; background-color: #0059b3 ;padding-right: 0px;padding-top: 0px;padding-bottom: 0px;">
+  				<button class="btn btn-link dropdown-toggle" style="color:white;" type="button" data-toggle="dropdown">Flowers&Cakes</button>
+    			<ul class="dropdown-menu">
+       			     <li><a href=""  target="">Flowers</a></li>
+    				  <li><a href="#" target="">Cakes</a></li>
+    			</ul>
+    		</li>
     		</ul>
-		</div>
-				<div class="dropdown">
-    		<button class="btn btn-primary dropdown-toggle" style="padding-left: 11px;padding-right: 22px;" type="button" data-toggle="dropdown" >Flowers&Cakes</button>
-    		<ul class="dropdown-menu">
-	      		<li><a href="#" target="iframe">Flowers</a></li>
-    	  		<li><a href="#" target="iframe">Cakes</a></li>
-    		</ul>
-		</div>
-				<div class="dropdown">
-    		<button class="btn btn-primary dropdown-toggle" style="padding-left: 11px;padding-right: 22px;" type="button" data-toggle="dropdown" >Flowers&Cakes</button>
-    		<ul class="dropdown-menu">
-	      		<li><a href="#" target="iframe">Flowers</a></li>
-    	  		<li><a href="#" target="iframe">Cakes</a></li>
-    		</ul>
-		</div>
-				<div class="dropdown">
-    		<button class="btn btn-primary dropdown-toggle" style="padding-left: 11px;padding-right: 22px;" type="button" data-toggle="dropdown" >Flowers&Cakes</button>
-    		<ul class="dropdown-menu">
-	      		<li><a href="#" target="iframe">Flowers</a></li>
-    	  		<li><a href="#" target="iframe">Cakes</a></li>
-    		</ul>
-		</div>
-		<div class="dropdown">
-    		<button class="btn btn-primary dropdown-toggle" style="padding-left: 11px;padding-right: 22px;" type="button" data-toggle="dropdown" >Flowers&Cakes</button>
-    		<ul class="dropdown-menu">
-	      		<li><a href="#" target="iframe">Flowers</a></li>
-    	  		<li><a href="#" target="iframe">Cakes</a></li>
-    		</ul>
-		</div>
-		<div class="dropdown">
-    		<button class="btn btn-primary dropdown-toggle" style="padding-left: 11px;padding-right: 22px;" type="button" data-toggle="dropdown" >Flowers&Cakes</button>
-    		<ul class="dropdown-menu">
-	      		<li><a href="#" target="iframe">Flowers</a></li>
-    	  		<li><a href="#" target="iframe">Cakes</a></li>
-    		</ul>
-		</div>
-				<div class="dropdown">
-    		<button class="btn btn-primary dropdown-toggle" style="padding-left: 11px;padding-right: 22px;" type="button" data-toggle="dropdown" >Flowers&Cakes</button>
-    		<ul class="dropdown-menu">
-	      		<li><a href="#" target="iframe">Flowers</a></li>
-    	  		<li><a href="#" target="iframe">Cakes</a></li>
-    		</ul>
-		</div>
-				<div class="dropdown">
-    		<button class="btn btn-primary dropdown-toggle" style="padding-left: 11px;padding-right: 22px;" type="button" data-toggle="dropdown" >Flowers&Cakes</button>
-    		<ul class="dropdown-menu">
-	      		<li><a href="#" target="iframe">Flowers</a></li>
-    	  		<li><a href="#" target="iframe">Cakes</a></li>
-    		</ul>
-		</div>
-				<div class="dropdown">
-    		<button class="btn btn-primary dropdown-toggle" style="padding-left: 11px;padding-right: 22px;" type="button" data-toggle="dropdown" >Flowers&Cakes</button>
-    		<ul class="dropdown-menu">
-	      		<li><a href="#" target="iframe">Flowers</a></li>
-    	  		<li><a href="#" target="iframe">Cakes</a></li>
-    		</ul>
-		</div>
-				<div class="dropdown">
-    		<button class="btn btn-primary dropdown-toggle" style="padding-left: 11px;padding-right: 22px;" type="button" data-toggle="dropdown" >Flowers&Cakes</button>
-    		<ul class="dropdown-menu">
-	      		<li><a href="#" target="iframe">Flowers</a></li>
-    	  		<li><a href="#" target="iframe">Cakes</a></li>
-    		</ul>
-		</div>
-				<div class="dropdown">
-    		<button class="btn btn-primary dropdown-toggle" style="padding-left: 11px;padding-right: 22px;" type="button" data-toggle="dropdown" >Flowers&Cakes</button>
-    		<ul class="dropdown-menu">
-	      		<li><a href="#" target="iframe">Flowers</a></li>
-    	  		<li><a href="#" target="iframe">Cakes</a></li>
-    		</ul>
-		</div>
     	</div>
 		    <div class="col-sm-10">
 		   <div  class="embed-responsive embed-responsive-16by9">

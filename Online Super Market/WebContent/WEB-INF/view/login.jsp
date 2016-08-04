@@ -13,10 +13,13 @@
 <title>Create User</title>
 </head>
 <body>
-     <div id="header" class="well " style="background-color: #0059b3; color:white;font-size: 30px;padding-bottom: 10px;padding-top: 9px;">
-     <table><tr><td><img src="images/icon.png" width="100px" height="100px"/></td>
-     <td><label style="color:white;font-size: 30px;margin-left: 46px;">Online Super Market</label></td></tr></table></div>
-<div class="row">
+     <div id="header" class="well " style="background-color: #0059b3; color:white;font-size: 30px;padding-bottom: 1px;padding-top: 0px;width: 100%;height: 135px;">
+     <table><tr><td><img src="images/icon.png" style="height: 143px;width: 165px;"/></td>
+     <td style="width: 645px; "> 
+      <label style="color:white;font-size: 30px;font-style: italic;">
+      MK Groceries</label></td></tr>
+      </table></div>
+<div class="row" style="height: 270px;">
 <div class="col-sm-6">
 <div class="panel ">
    			   <div  class="embed-responsive embed-responsive-16by9">
@@ -27,12 +30,12 @@
 <div class="col-sm-6">
 <div class="panel panel-primary">
   <div class="panel-heading"  style="background-color: #0059b3;">Sign In</div>
- 	<div class="panel-body">
+ 	<div class="panel-body" style=" padding-bottom: 0px;">
 	<form:form method="POST" modelAttribute="user" action="checkUser.html">
 
   		<div class="form-group">
     		<form:label path="email">Email Id</form:label>
-    		<form:input path="email" type="text" class="form-control "  placeholder="Enter your email id"/>
+    		<form:input path="email" type="email" class="form-control "  placeholder="Enter your email id"/>
   		</div>
   		<div class="form-group">
     		<form:label path="password">Password</form:label>

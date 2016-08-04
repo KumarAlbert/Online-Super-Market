@@ -13,56 +13,82 @@
 <title>Create User</title>
 
 <script>
-function myFunction() {
-    var str = document.getElementById("firstName").innerHTML;
-    var regex = /^[a-zA-Z ]{2,30}$/;
-    if (regex.test(str.value)) {
-        return true;
+function registerValidation() {
+    var firstName = document.getElementById('firstName').value;
+    var lastName = document.getElementById('lastName').value;
+    var mobileNumber = document.getElementById('mobileNumber').value;
+    var password = document.getElementById('password').value;
+    var confirmPassword = document.getElementById('confirmPassword').value;
+	var string = /^[a-zA-Z ]{2,30}$/;
+    var number = /^[789][0-9]{9}$/;
+    if (string.test(firstName)) {
+    	if (string.test(lastName)) {
+    		if(number.test(mobileNumber)) {
+    			if(password == confirmPassword){
+    				return true;
+    			}
+	    		else {
+	    	    	alert("Confirm password mismatch!!!");
+	    	    	return false;
+	    	    }
+    		}
+    		else {
+    	    	alert("Enter valid mobile number!!!");
+    	    	return false;
+    	    }
+    	}
+    	else {
+        	alert("Enter valid last name!!!");
+        	return false;
+        }
     }
     else {
-        return false;
+    	alert("Enter valid first name!!!");
+    	return false;
     }
-    document.getElementById("demo").innerHTML = alert;
 }
 </script>
 </head>
 <body>
-     <div id="header" class="well " style="background-color: #0059b3; color:white;font-size: 30px;padding-bottom: 10px;padding-top: 9px;">
-     <table><tr><td><img src="images/icon.png" width="100px" height="100px"/></td>
-     <td><label style="color:white;font-size: 30px">Online Super Market</label></td></tr></table></div>
+     <div id="header" class="well " style="background-color: #0059b3; color:white;font-size: 30px;padding-bottom: 1px;padding-top: 0px;width: 100%;height: 135px;">
+     <table><tr><td><img src="images/icon.png" style="height: 143px;width: 165px;"/></td>
+     <td style="width: 645px; "> 
+      <label style="color:white;font-size: 30px;font-style: italic;">
+      MK Groceries</label></td></tr>
+      </table></div>
 <div class="row">
 <div class="col-sm-6">
 <div class="panel panel-primary">
   <div class="panel-heading"  style="background-color: #0059b3;">Sign Up</div>
  	<div class="panel-body">
-	<form:form  name="register" onsubmit="return myFunction()" method="POST" modelAttribute="user" action="saveUser.html">
+	<form:form  onsubmit="return registerValidation()" method="POST" modelAttribute="user" action="saveUser.html">
 	<div class="row">
 	<div class="col-sm-6">
   		<div class="form-group">
     		<form:label path="firstName">First Name</form:label>
-    		<form:input path="firstName" id="firstName" type="text" class="form-control "  placeholder="Enter your first name"/>
+    		<form:input path="firstName" id="firstName" class="form-control "  placeholder="Enter your first name"/>
   		</div>
   		<div class="form-group">
     		<form:label path="email">Email</form:label>
-    		<form:input path="email" type="email" class="form-control"  placeholder="Enter your email address"/>
+    		<form:input path="email" id="email" type="email" class="form-control"  placeholder="Enter your email address"/>
   		</div>
   		<div class="form-group">
     		<form:label path="password">Password</form:label>
-    		<form:input path="password" type="password" class="form-control"  placeholder="Enter your password"/>
+    		<form:input path="password" id="password" type="password" class="form-control"  placeholder="Enter your password"/>
   		</div>
   		</div>
   		<div class="col-sm-6">
  		<div class="form-group">
     		<form:label path="lastName">Last Name</form:label>
-    		<form:input path="lastName" type="text" class="form-control"  placeholder="Enter your last name"/>
+    		<form:input path="lastName" id="lastName" type="text" class="form-control"  placeholder="Enter your last name"/>
   		</div>
   		<div class="form-group">
     		<form:label path="mobileNumber">Mobile Number</form:label>
-    		<form:input  path="mobileNumber"  type="integer" class="form-control" placeholder="Enter Mobile Number"/>
+    		<form:input  path="mobileNumber"  id="mobileNumber" type="integer" class="form-control" placeholder="Enter Mobile Number"/>
   		</div>
   		<div class="form-group">
     		<label>Confirm Password</label>
-    		<input type="password" class="form-control" placeholder="Enter password again" />
+    		<input type="password" id="confirmPassword" class="form-control" placeholder="Enter password again" />
   		</div>
   		</div>
   		<div class="form-group">

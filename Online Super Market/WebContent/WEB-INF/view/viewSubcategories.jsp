@@ -16,10 +16,9 @@
 </head>
 <body>
 <div class="col-sm-12">
-<div class="panel panel-primary">
-  <div class="panel-heading">Subcategories</div>
- 	<div class="panel-body">
+<div class="panel">
         <div>
+        <h2>Subcategories</h2>
           <table class="table table-striped" bgcolor="black" width="100%">
             <tr style="color: black;text-align: center;" height="40px">
                 <td><dt>Subcategory Id</dt></td>

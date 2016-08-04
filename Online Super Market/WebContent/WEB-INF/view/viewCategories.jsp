@@ -17,10 +17,9 @@
 <body>
 <div class="row">
 <div class="col-sm-12">
-<div class="panel panel-primary">
-  <h2>Categories</h2>
- 	<div class="panel-body">
+<div class="panel ">
         <div>
+          <h2>Categories</h2>
           <table class="table table-striped" bgcolor="black" width="100%">
           <thead>
             <tr style="color: black;text-align: center;" height="40px">

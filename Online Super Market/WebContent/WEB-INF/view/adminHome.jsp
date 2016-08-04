@@ -8,7 +8,7 @@
   <script src="js/bootstrap.min.js"></script>
 </head>
 <body width="50%">
-<div id="header" class="well " style="background-color: #0059b3; color:white;font-size: 30px;padding-bottom: 0px;padding-top: 0px;height: 129px;border-top-width: 0px;width: 998px;">
+<div id="header" class="well " style="background-color: #0059b3; color:white;font-size: 30px;padding-bottom: 0px;padding-top: 0px;height: 129px;border-top-width: 0px;width: 100%;">
   <div class="row">
     <div class="col-sm-9">
      <table><tr><td><img src="images/icon.png" style="height: 143px;width: 165px;"/></td>
@@ -23,7 +23,7 @@
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-left: 0px;padding-top: 0px;padding-right: 0px;
         padding-bottom: 0px;    width: 0px;    height: 0px;">
-        <p style="font-family: sans-serif;font-size:medium;color:white;margin-left: 103px;margin-top: 35px;">${user.firstName}</p></a>
+        <p style="font-family: sans-serif;font-size:medium;color:white;margin-left: 152px;margin-top: 21px;">${user.firstName}</p></a>
         <ul class="dropdown-menu" style=" top: 23px;right: 0px;height: 106px;width: 60px;border-right-width: 0px;border-left-width: 0px;left: 71px;">
           <li><a href="#"><button type="button" class="btn btn-link" data-toggle="modal" data-target="#myModal">Profile</button></a></li>
           <li><a href="userHome.html" style="margin-left: 0px;padding-left: 35px;">User Page</a></li>

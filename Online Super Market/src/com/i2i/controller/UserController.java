@@ -1,5 +1,6 @@
 package com.i2i.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -40,7 +41,7 @@ public class UserController {
 	
 	private User user = null;
 	private List<Cart> cartList = null;
-	
+	private List<Product> products = null;
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
     public ModelAndView saveUserData(@ModelAttribute("user") User user,
 		                        	   BindingResult result) { 
@@ -100,11 +101,14 @@ public class UserController {
 	public ModelAndView saveCart(@RequestParam("quantity") int quantity,@RequestParam("productPrice") double price ,
 			@RequestParam("product") Object object) {
         try {
+        	int id = 0;
+        	id = user.getId();
         	Cart cart = new Cart();
         	String name = object.toString();
             java.sql.Timestamp time = new java.sql.Timestamp(new java.util.Date().getTime());
             cart.setCreatedAt(time);
-            cart.setCreatedBy(101);
+            cart.setCreatedBy(id);
+        	System.out.println(name);
             Product product = productService.findProductByName(name);
             double total = quantity * price;
             cart.setTotalPrice(total);
@@ -367,7 +371,16 @@ public class UserController {
 	
 	@RequestMapping("/fruits")
 	public ModelAndView redirectToFruits() {
-		return new ModelAndView("fruits");
+		Map<String, Object> model = new HashMap<String, Object>();
+		List<Product> fruits = new ArrayList<Product>();
+		for(Product product : products) {
+			Subcategory subcategory = product.getSubcategory();
+			if("Fruits".equals(subcategory.getName())) {
+				fruits.add(product);
+			}
+		}
+		model.put("fruits", fruits);
+		return new ModelAndView("fruits",model);
 	}
 	
 	@RequestMapping("/imageScroll")
@@ -392,7 +405,13 @@ public class UserController {
 	@RequestMapping("/home")
 	public ModelAndView gethome(@ModelAttribute("user") User user,
 			BindingResult result) {
-		return new ModelAndView("home");
+		try {
+			products = productService.getProductDetails();
+		    return new ModelAndView("home");
+		} catch(ApplicationException e){
+			
+		}
+		return null;
 	}
 	
 

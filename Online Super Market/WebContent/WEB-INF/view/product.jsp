@@ -11,8 +11,19 @@
 <link rel="stylesheet" href="css/style.css">
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/javascript.js"></script>
-
+<script>
+function registerValidation() {
+    var quantity = document.getElementById('quantity').value;
+    var stock = document.getElementById('stock').value;
+	if(quantity <= stock){
+		return true;
+	}
+	else {
+	 	alert("We have only  "+stock+"  products");
+	 	return false;
+ }
+}
+</script>
 </head>
 <body>
 <div class="row">
@@ -31,12 +42,13 @@
 		<h4><b>Description</b></h4><p>
 		   <c:out value="${product.description}"/></p>
 		<p></p>
-		<form method="POST" action="saveCart.html" >
+		<form method="POST" action="saveCart.html" onsubmit="return registerValidation()">
 		    		<label >Quantity</label>
 		     <input name="productPrice" id="product" value="${product.price}" type="hidden"/>
 		    <input name="product" id="product" value="${product.name}" type="hidden"/>
     		<input  name="quantity" id="quantity" type="text"/>
-			<i style="margin-left: 141px;">Available:</i><c:out value="${product.stock}"/><p></p>
+     	     <input  id="stock" value="${product.stock}" type="hidden"/>
+			<i style="margin-left: 141px;">Available:</i> <c:out value="${product.stock}"/><p id="available" style="color:red"></p><p></p>
 
 		    		<span><button type="submit" class="btn btn-success" style=" padding-bottom: 0px;">Add to <p class="glyphicon glyphicon-shopping-cart"></p></button></span>
 		    		

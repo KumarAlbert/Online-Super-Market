@@ -7,8 +7,9 @@
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
 </head>
-<body width="50%">
-<div id="header" class="well " style="background-color: #0059b3; color:white;font-size: 30px;padding-bottom: 0px;padding-top: 0px;height: 129px;border-top-width: 0px;width: 998px;">
+
+<body>
+<div id="header" class="well " style="background-color: #0059b3; color:white;font-size: 30px;padding-bottom: 0px;padding-top: 0px;height: 129px;border-top-width: 0px;width: 100%">
   <div class="row">
     <div class="col-sm-10">
      <table><tr><td><img src="images/icon.png" style="height: 143px;width: 165px;"/></td>
@@ -24,7 +25,7 @@
 <div class="container-fluid">
   <div class="row">
  	   <div class="col-sm-2 sidenav">
-		 <ul class="list-group" style=" ">
+		 <ul class="list-group" >
   			<li class="list-group-item" style=" background-color:#0059b3;padding-left: 0px; padding-right: 0px;padding-top: 0px;padding-bottom: 0px;">
   				<button class="btn btn-link dropdown-toggle" type="button" data-toggle="dropdown" style="color:white;">Fruits&Vegtables</button>
     			<ul class="dropdown-menu">
