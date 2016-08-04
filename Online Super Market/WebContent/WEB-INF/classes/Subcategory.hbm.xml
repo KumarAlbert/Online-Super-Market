@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+   <class name="com.i2i.model.Subcategory" table="Subcategory">
+      <meta attribute="class-description">
+         This class contains the Subcategory detail. 
+      </meta>
+      <id name="id" type="int" column="id">
+      </id>
+      <property name="name" column="name" type="string"/>
+      <property name="createdBy" column="createdBy" type="int"/> 
+      <property name="createdAt" column="createdAt" type="timestamp"/>
+      <property name="modifiedBy" column="modifiedBy" type="int"/>     
+      <property name="modifiedAt" column="modifiedAt" type="timestamp"/>
+      
+      <many-to-one name="Category" lazy="false" class="com.i2i.model.Category" fetch="select">
+            <column name="categoryId" not-null="false" />
+      </many-to-one>
+      <set name="products" table="Product" 
+		                   inverse="true" lazy="false" fetch="select">
+            <key column="subcategoryId"/>
+            <one-to-many class="com.i2i.model.Product" />
+      </set>
+   </class>
+</hibernate-mapping>

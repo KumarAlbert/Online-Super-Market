@@ -18,7 +18,7 @@
 <div class="row">
 <div class="col-sm-12">
 <div class="panel panel-primary">
-  <h2>Categories</h2>
+  <div class="panel-heading">Categories</div>
  	<div class="panel-body">
         <div>
           <table class="table table-striped" bgcolor="black" width="100%">

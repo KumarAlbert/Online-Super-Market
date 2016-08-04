@@ -15,6 +15,7 @@
 <title>Subcategory</title>
 </head>
 <body>
+<div class="row">
 <div class="col-sm-12">
 <div class="panel panel-primary">
   <div class="panel-heading">Subcategories</div>
@@ -45,6 +46,7 @@
         <br>
         </div>
 	</div></div></div>
+	</div>
 </body>
 </html>
 

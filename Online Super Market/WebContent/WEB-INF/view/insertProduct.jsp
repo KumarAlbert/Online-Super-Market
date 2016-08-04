@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -14,14 +13,13 @@
 <title>Product</title>
 </head>
 <body>
-<div class="alert">
-  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-  <strong>Note!</strong>  Check Product details before adding new product to the Subcategory.
-</div>
-<div class="col-sm-6">
-<div class="panel">
-  <h2>ADD PRODUCT</h2>
+<div class="row">
+<div class="col-sm-12">
+<div class="panel panel-primary">
+  <div class="panel-heading">ADD PRODUCT</div>
+ 	<div class="panel-body">
 	<form method="POST" action="productInsert.html">
+	<div class="col-sm-6">
   		<div class="form-group">
     		<label >Enter SubCategory Name</label>
     		<input name="subcategoryName" type="text" class="form-control" required="required" pattern="[a-zA-Z& ]*" placeholder="SubCategory name" id="subcategoryName"/>
@@ -48,31 +46,10 @@
   		</div>
   		<center><button type="submit" class="btn btn-info">Submit</button>
   		<button type="reset" class="btn btn-danger">Reset</button></center>
+  		</div>
 	</form>
-	</div></div>
-	<div class="col-sm-6">
-<div class="panel">
-  <h2>Product Details</h2>
-        <div>
-          <table class="table table-striped" bgcolor="black" width="100%">
-          <thead>
-            <tr style="color: black;text-align: center;" height="40px">
-                <td><dt>Product Name</dt></td>
-                <td><dt>SubCategory Name</dt></td>              
-            </tr>
-          </thead>
-          <c:forEach items="${product}" var="product">
-          <tbody>
-            <tr style="background-color:white;color: black;text-align: center;" height="50px" >
-                <td><c:out value="${product.name}"/></td>
-                <td><c:out value="${product.subcategory.name}"/></td>                              
-            </tr>
-          </tbody>
-        </c:forEach>
-        </table>
-        <br>
-        </div>
-	</div></div>
+	</div></div></div>
+	</div>
 </body>
 </html>
 

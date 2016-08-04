@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+   <class name="com.i2i.model.PurchaseOrder" table="PurchaseOrder">
+      <meta attribute="class-description">
+         This class contains the Purchase Order detail. 
+      </meta>
+      <id name="id" type="int" column="id">
+      </id>
+      <property name="total" column="total" type="double"/>
+      <property name="paymentType" column="paymentType" type="string"/>
+      <property name="status" column="status" type="boolean"/>
+      <property name="createdAt" column="createdAt" type="timestamp"/>
+      <property name="modifiedAt" column="modifiedAt" type="timestamp"/>
+      <property name="createdBy" column="createdBy" type="int"/> 
+      <property name="modifiedBy" column="modifiedBy" type="int"/>     
+      <set name="carts" table="Subcategory" 
+				inverse="true" lazy="false" fetch="select">
+            <key column="purchaseOrderId"/>
+            <one-to-many class="com.i2i.model.Cart" />
+      </set>
+      <many-to-one name="user" class="com.i2i.model.User" fetch="select">
+            <column name="userId" not-null="false" />
+      </many-to-one>
+   </class>
+</hibernate-mapping>
