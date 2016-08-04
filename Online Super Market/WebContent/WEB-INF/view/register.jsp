@@ -11,6 +11,20 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <title>Create User</title>
+
+<script>
+function myFunction() {
+    var str = document.getElementById("firstName").innerHTML;
+    var regex = /^[a-zA-Z ]{2,30}$/;
+    if (regex.test(str.value)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+    document.getElementById("demo").innerHTML = alert;
+}
+</script>
 </head>
 <body>
      <div id="header" class="well " style="background-color: #0059b3; color:white;font-size: 30px;padding-bottom: 10px;padding-top: 9px;">
@@ -21,12 +35,12 @@
 <div class="panel panel-primary">
   <div class="panel-heading"  style="background-color: #0059b3;">Sign Up</div>
  	<div class="panel-body">
-	<form:form method="POST" modelAttribute="user" action="saveUser.html">
+	<form:form  name="register" onsubmit="return myFunction()" method="POST" modelAttribute="user" action="saveUser.html">
 	<div class="row">
 	<div class="col-sm-6">
   		<div class="form-group">
     		<form:label path="firstName">First Name</form:label>
-    		<form:input path="firstName" type="text" class="form-control "  placeholder="Enter your first name"/>
+    		<form:input path="firstName" id="firstName" type="text" class="form-control "  placeholder="Enter your first name"/>
   		</div>
   		<div class="form-group">
     		<form:label path="email">Email</form:label>

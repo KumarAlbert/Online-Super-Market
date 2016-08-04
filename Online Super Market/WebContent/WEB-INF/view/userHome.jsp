@@ -11,13 +11,13 @@
   <script src="js/bootstrap.min.js"></script>
 </head>
 <body width="50%">
-<div id="header" class="well " style="background-color: #0059b3; color:white;font-size: 30px;padding-bottom: 10px;padding-top: 9px;">
+<div id="header" class="well " style="background-color: #0059b3; color:white;font-size: 30px;padding-bottom: 0px;padding-top: 0px;height: 129px;border-top-width: 0px;width: 998px;">
   <div class="row">
     <div class="col-sm-9">
-     <table><tr><td><img src="images/icon.png" width="100px" height="100px"/></td>
+     <table><tr><td><img src="images/icon.png" style="height: 143px;width: 165px;"/></td>
      <td style="width: 645px; "> 
-      <label style="color:white;font-size: 30px">
-      Online Super Market</label></td></tr>
+      <label style="color:white;font-size: 30px;font-style: italic;">
+      MK Groceries</label></td></tr>
       </table></div>
     <div class="col-sm-3">
 
