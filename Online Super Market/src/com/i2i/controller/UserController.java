@@ -221,7 +221,7 @@ public class UserController {
 
 	@RequestMapping(value="/productInsert",method = RequestMethod.POST)
 	public ModelAndView insertProduct(@RequestParam("subcategoryName") String subcategoryName, @RequestParam("productName") String name,
-		                          @RequestParam("description") String description, @RequestParam("imageurl") String imageUrl,
+		                          @RequestParam("description") String description, @RequestParam("imageUrl") String imageUrl,
 		                          @RequestParam("stock") int stock , @RequestParam("price") double price) {
 		try {
 			int createdBy = user.getId();

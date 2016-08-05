@@ -12,6 +12,19 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <title>Product</title>
+<script>
+function validation() {
+    var name = document.getElementById('productName').value;
+	var stringForProduct = /^([a-zA-Z ]{2,30})$/ 
+    if (stringForProduct.test(name)) {
+        retuen true;
+    } else {
+    	alert("Enter valid name!!");
+ 	    return false;	
+    }
+
+}
+</script>
 </head>
 <body>
 <div class="alert">
@@ -21,10 +34,10 @@
 <div class="col-sm-6">
 <div class="panel ">
   <h2>Update Product</h2>
-	<form method="POST" action="productUpdate.html">
+	<form onsubmit="return validation()" method="POST" action="productUpdate.html">
   		<div class="form-group">
     		<label >Enter Product Name</label>
-    		<input name="productName" type="text" class="form-control" pattern="[a-zA-Z& ]*" required="required" placeholder="Name of the Product"/>
+    		<input name="productName" id = "productName"type="text" class="form-control" required="required" placeholder="Name of the Product"/>
   		</div>
   		<div class="form-group">
   	        <label>Select your choice to be updated</label>

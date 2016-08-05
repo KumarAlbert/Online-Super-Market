@@ -13,19 +13,41 @@
 <script src="js/bootstrap.min.js"></script>
 <title>Category</title>
 </head>
-<body>
+<script>
+function validation() {
+    var categoryName = document.getElementById('existingCategoryName').value;
+    var categoryNameToBeUpdated = document.getElementById('categoryName').value;
+	var stringForCategory = /^([a-zA-Z ]{2,30})$/ 
+    if (stringForCategory.test(categoryName)) {
+    	if(stringForCategory.test(categoryNameToBeUpdated)) {
+    	    return true;
+        } else {
+    	    alert("Enter valid name!!");
+    	    return false;
+        }
+    } else {
+    	alert("Enter valid new name!!");
+ 	    return false;	
+    }
 
+}
+</script>
+<body>
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>Info!</strong> Please enter valid category name by verifying it on category details.
+</div>
 <div class="col-sm-6">
 <div class="panel">
   <h2>Update Category</h2>
-	<form method="POST" action="categoryUpdate.html">
+	<form onsubmit="return validation()" method="POST" action="categoryUpdate.html">
   		<div class="form-group">
     		<label >Enter Existing Category Name</label>
-    		<input name="existingCategoryName" type="text" class="form-control" pattern="[a-zA-Z& ]*" required="required" placeholder="Existing Category name"/>
+    		<input name="existingCategoryName" id="existingCategoryName" type="text" class="form-control"  required="required" placeholder="Existing Category name"/>
   		</div>
   		<div class="form-group">
     		<label>Enter Category Name</label>
-    		<input name="categoryName" type="text" class="form-control" required="required" pattern="[a-zA-Z& ]*" placeholder="Category of the Product"/>
+    		<input name="categoryName" id="categoryName" type="text" class="form-control" required="required"  placeholder="Category of the Product"/>
   		</div>
   		<center><button type="submit" class="btn btn-info">Submit</button>
   		<button type="reset" class="btn btn-danger">Reset</button></center>

@@ -12,6 +12,26 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <title>Subcategory</title>
+<script>
+function validation() {
+    var categoryName = document.getElementById('categoryName').value;
+    var subcategoryName = document.getElementById('subcategoryName').value;
+	var stringForCategory = /^([a-zA-Z&]{2,30})$/ 
+	var stringForSubCategory = /^([a-zA-Z ]{2,30})$/ ;
+    if (stringForCategory.test(categoryName)) {
+    	if(stringForSubCategory.test(subcategoryName)) {
+    	    return true;
+        } else {
+    	    alert("Enter valid subcategory name!!");
+    	    return false;
+        }
+    } else {
+    	alert("Enter valid category name!!");
+ 	    return false;	
+    }
+
+}
+</script>
 </head>
 <body>
 <div class="alert">
@@ -21,14 +41,14 @@
 <div class="col-sm-6">
 <div class="panel">
   <h2>Add Subcategory</h2>
-	<form method="POST" action="subcategoryInsert.html">
+	<form onsubmit="return validation()" method="POST" action="subcategoryInsert.html">
   		<div class="form-group">
     		<label >Enter Category Name</label>
-    		<input name="categoryName" type="text" class="form-control " required="required" pattern="[a-zA-Z& ]*" placeholder="Category name" id="categoryName"/>
+    		<input name="categoryName" type="text" class="form-control " required="required"  placeholder="Category name" id="categoryName"/>
   		</div>
   		 <div class="form-group">
     		<label >Enter Subcategory Name</label>
-    		<input name="subcategoryName" type="text" class="form-control "  required="required" pattern="[a-zA-Z& ]*" placeholder="Sub Category name" id="subcategoryName"/>
+    		<input name="subcategoryName" type="text" class="form-control "  required="required"  placeholder="Sub Category name" id="subcategoryName"/>
   		</div>
   		<center><button type="submit" class="btn btn-info">Submit</button>
   		<button type="reset" class="btn btn-danger">Reset</button></center>

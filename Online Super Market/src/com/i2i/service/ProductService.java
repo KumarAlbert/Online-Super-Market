@@ -29,12 +29,13 @@ public class ProductService {
 	@Autowired
 	ProductDao productDao;
 	
-	public boolean addProduct(String name, String description, String subcategoryName, String imageUrl, int stock,
+	public boolean addProduct(String name, String description, String subcategoryName, String url, int stock,
 			double price, int createdBy) throws ApplicationException {
 		Subcategory subcategory = subcategoryService.findSubcategoryByName(subcategoryName);
         Timestamp createdAt = new java.sql.Timestamp(new java.util.Date().getTime());
         Timestamp modifiedAt = null;
         int modifiedBy = 0;
+        String imageUrl = "images/"+url;
 		Product product = new Product(name, description, subcategory, imageUrl, stock, price, createdBy,
 				                      createdAt,modifiedBy ,modifiedAt);
 		return productDao.insertProduct(product);

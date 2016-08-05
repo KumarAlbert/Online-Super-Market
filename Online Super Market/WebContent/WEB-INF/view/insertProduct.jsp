@@ -12,6 +12,39 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <title>Product</title>
+<script>
+function validation() {
+    var productName = document.getElementById('productName').value;
+    var subcategoryName = document.getElementById('subcategoryName').value;
+    var stock = document.getElementById('stock').value;
+    var price = document.getElementById('price').value;
+	var stringForProduct = /^([a-zA-Z ]{2,30})$/ 
+	var stringForSubCategory = /^([a-zA-Z&]{2,30})$/ ;
+	var numberForPrice = /^(([0-9]{1,7}([.0-9]{3}))|([0-9]{1,7}))$/;
+	var numberForStock = /^[0-9]{1,4}$/;
+	if(stringForSubCategory.test(subcategoryName)) {
+		if(stringForProduct.test(productName)) {
+			if(numberForStock.test(stock)) {
+				if(numberForPrice.test(price)){
+					return true;
+				} else {
+					 alert("Enter valid price value!!");
+			    	 return false;
+				}
+			} else {
+				 alert("Enter valid stock value!!");
+		    	 return false;
+			}
+		} else {
+			 alert("Enter valid product name!!");
+	    	 return false;
+		}
+	} else {
+		 alert("Enter valid subcategory name!!");
+    	 return false;
+	}
+}
+</script>
 </head>
 <body>
 <div class="alert">
@@ -21,26 +54,26 @@
 <div class="col-sm-6">
 <div class="panel">
   <h2>ADD PRODUCT</h2>
-	<form method="POST" action="productInsert.html">
+	<form onsubmit="return validation()" method="POST" action="productInsert.html">
   		<div class="form-group">
     		<label >Enter SubCategory Name</label>
-    		<input name="subcategoryName" type="text" class="form-control" required="required" pattern="[a-zA-Z& ]*" placeholder="SubCategory name" id="subcategoryName"/>
+    		<input name="subcategoryName" type="text" class="form-control" required="required"  placeholder="SubCategory name" id="subcategoryName"/>
   		</div>
   		<div class="form-group">
     		<label >Enter Product Name</label>
-    		<input name="productName" type="text" class="form-control" required="required" pattern="[a-zA-Z& ]*" placeholder="Enter product name" id="productName"/>
+    		<input name="productName" type="text" class="form-control" required="required"  placeholder="Enter product name" id="productName"/>
   		</div>
   		<div class="form-group">
     		<label >Enter Description</label>
     		<input name="description" type="text" class="form-control" required="required"  placeholder="Enter Description" id="description"/>
   		</div>
   		<div class="form-group">
-    		<label >Enter ImageUrl</label>
-    		<input name="imageurl" type="text" class="form-control" required="required"  placeholder="Enter url of image" id="imageurl"/>
+    		<label for="imageUrl">Upload a Image here</label>
+    		<input required="required" type="file"  id="imageUrl" name="imageUrl" class="btn btn-default btn-lg" placeholder="Upload a image"/>
   		</div>
   		<div class="form-group">
     		<label >Enter Available stock</label>
-    		<input name="stock" type="text" class="form-control" required="required" pattern="^\d*" placeholder="Enter stock" id="stock"/>
+    		<input name="stock" type="text" class="form-control" required="required"  placeholder="Enter stock" id="stock"/>
   		</div>
   		<div class="form-group">
     		<label >Enter Unit Price</label>
@@ -58,7 +91,7 @@
           <thead>
             <tr style="color: black;text-align: center;" height="40px">
                 <td><dt>Product Name</dt></td>
-                <td><dt>SubCategory Name</dt></td>              
+                <td><dt>SubCategory Name</dt></td>             
             </tr>
           </thead>
           <c:forEach items="${product}" var="product">
@@ -75,4 +108,3 @@
 	</div></div>
 </body>
 </html>
-

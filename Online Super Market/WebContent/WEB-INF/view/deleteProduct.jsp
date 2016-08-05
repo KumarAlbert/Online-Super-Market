@@ -12,6 +12,19 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <title>Product</title>
+<script>
+function validation() {
+    var name = document.getElementById('productName').value;
+	var string = /^([a-zA-Z ]{2,30})$/ ;
+    if (string.test(name)) {
+    	return true;
+    } else {
+    	alert("Enter valid product name!!");
+    	return false;
+    }
+
+}
+</script>
 </head>
 <body>
 <div class="alert">
@@ -21,10 +34,10 @@
 <div class="col-sm-6">
 <div class="panel">
   <h2>Delete Product</h2>
-	<form method="POST" action="productDelete.html">
+	<form onsubmit="return validation()" method="POST" action="productDelete.html">
 	    <div class="form-group">
     		<label>Enter Product Name</label>
-    		<input name="productName" id="productName" type="text" class="form-control" pattern="[a-zA-Z& ]*" required="required" placeholder="Name of the Product"/>
+    		<input name="productName" id="productName" type="text" class="form-control" required="required" placeholder="Name of the Product"/>
     	</div>
   		<center><button type="submit" class="btn btn-info">Submit</button>
   		<button type="reset" class="btn btn-danger">Reset</button></center>
@@ -38,7 +51,7 @@
           <thead>
             <tr style="color: black;text-align: center;" height="40px">
                 <td><dt>Product Name</dt></td>
-                <td><dt>SubCategory Name</dt></td>              
+                <td><dt>SubCategory Name</dt></td>                
             </tr>
           </thead>
           <c:forEach items="${product}" var="product">
