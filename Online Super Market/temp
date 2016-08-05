@@ -1,44 +1,12 @@
-  removed carts set from product hbm file
-
-      
-
-   ===================================================================================================
-   
-   
-   
-   
-   <c:out value="${product.imageUrl}"/>
-   <c:out value="${product.description}"/>
-   <c:out value="${product.stock}"/>
-   <c:out value="${product.price}"/>
-   
-   
-
-   
-       <form method="GET">
-    <div class="container">
-  <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal"
-  style=" margin-top: 68px; margin-left: 74px;">Cart</button>
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>This is a small modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</form>
-    
-        </div>
+<script>
+function registerValidation() {
+    var quantity = document.getElementById('quantity').value;
+    var stock = document.getElementById('stock').value;
+	if(quantity <= stock){
+    	 document.getElementById("available").innerHTML ="In Stock";
+    }
+	else {
+	 	document.getElementById("available").innerHTML ="Out of Stock";
+ }
+}
+</script>

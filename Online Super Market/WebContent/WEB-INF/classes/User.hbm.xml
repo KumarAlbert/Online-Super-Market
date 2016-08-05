@@ -18,7 +18,7 @@
       <property name="firstName" column="firstName" type="string"/>
       <property name="lastName" column="lastName" type="string"/>
       <property name="email" column="email" type="string"/>
-      <property name="mobileNumber" column="mobileNumber" type="long"/>
+      <property name="mobileNumber" column="mobileNumber" type="string"/>
       <property name="password" column="password" type="string"/>
       <property name="address" column="address" type="string"/>
       <property name="createdAt" column="createdAt" type="timestamp"/>
