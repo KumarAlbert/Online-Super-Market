@@ -15,11 +15,11 @@
 function registerValidation() {
     var quantity = document.getElementById('quantity').value;
     var stock = document.getElementById('stock').value;
-	if(quantity <= stock){
+	if(stock < quantity){
 		return true;
 	}
 	else {
-	 	alert("We have only  "+stock+"  products");
+		alert("We have only  "+stock+"  products");
 	 	return false;
  }
 }
@@ -31,27 +31,27 @@ function registerValidation() {
      		 <img alt="images/fruit1.jpg" src="images/fruit.jpg" style="height: 176px; width: 786px;"/>
       		</div>
       		<div class="row">
-      		 <c:forEach items="${fruits}" var="fruit">
+      		 <c:forEach items="${productFilter}" var="product">
         		<div class="col-sm-3">
           			<div class="panel">
-             		 <img alt="images/banana.jpg" src="<c:out value="${fruit.imageUrl}"/>" height="100px" width="100px"/>
-					<h4>MRP:<div style="font-style:oblique; ;color:red"><c:out value="Rs ${fruit.price}"/></div></h4>
+             		 <img alt="images/banana.jpg" src="<c:out value="${product.imageUrl}"/>" height="100px" width="100px"/>
+					<h4>MRP:<div style="font-style:oblique; ;color:red"><c:out value="Rs ${product.price}"/></div></h4>
 					<p></p>
 						<p></p>
-						<form method="POST" action="saveCart.html" onsubmit="return registerValidation()">
+						<form method="POST" action="saveCart.html" onsubmit="return registerValidation()" >
 				    		<label >Quantity</label>
-						     <input name="productPrice" id="product" value="${fruit.price}" type="hidden"/>
-							    <input name="product" id="product" value="${fruit.name}" type="hidden"/>
+						     <input name="productPrice" id="product" value="${product.price}" type="hidden"/>
+							    <input name="product" id="product" value="${product.name}" type="hidden"/>
   							  		<input  name="quantity" id="quantity" type="text"style="width: 28px;height: 23px;"/>
-  							   	     <input  id="stock" value="${fruit.stock}" type="hidden"/>
-									<i style="margin-left: 12px;">Available:</i> <c:out value="${fruit.stock}"/>
-									<p id="available" style="color:red"></p><p></p>
-		    						<span><button type="submit" class="btn btn-success" style=" padding-bottom: 0px;">Add to <p class="glyphicon glyphicon-shopping-cart"></p></button></span>
+  							   	     <input  id="stock" value="${product.stock}" type="hidden"/>
+									<i id="inStock" style="color:green"></i>
+									<i id="outStock" style="color:red"></i><p></p>
+		    						<span><button type="submit"  class="btn btn-success" style=" padding-bottom: 0px;">Add to <p class="glyphicon glyphicon-shopping-cart"></p></button></span>
 		    		
 		    		</form>
              		 <form method="POST" action="singleFruit.html"><h4>
-             		 <input name="fruit" value="<c:out value="${fruit.name}"/>" type="hidden"/>
-             		 <button type="submit" class="btn btn-link"><c:out value="${fruit.name}"/></button></h4></form>
+             		 <input name="fruit" value="<c:out value="${product.name}"/>" type="hidden"/>
+             		 <button type="submit" class="btn btn-link"><c:out value="${product.name}"/></button></h4></form>
           			</div>
         </div>
         </c:forEach>

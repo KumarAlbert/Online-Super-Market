@@ -1,3 +1,6 @@
+   <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html >
 <head>
@@ -7,30 +10,42 @@
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
 </head>
-
-<body>
-<div id="header" class="well " style="background-color: #0059b3; color:white;font-size: 30px;padding-bottom: 0px;padding-top: 0px;height: 129px;border-top-width: 0px;width: 100%">
+<body width="50%">
+<div id="header" class="well " style="background-color: #0059b3; color:white;font-size: 30px;padding-bottom: 0px;padding-top: 0px;height: 129px;border-top-width: 0px;width: 100%;">
   <div class="row">
-    <div class="col-sm-10">
+    <div class="col-sm-9">
      <table><tr><td><img src="images/icon.png" style="height: 143px;width: 165px;"/></td>
      <td style="width: 645px; "> 
-      <label style="color:white;font-size: 30px; font-style: ">
+      <label style="color:white;font-size: 30px;font-style: italic;">
       MK Groceries</label></td></tr>
       </table></div>
-    <div class="col-sm-2">
-<a href="login.html" style="font-family: sans-serif;color:white;font-size:medium; ;margin-left: 73px;">Log In</a>
-<a href="cart.html" target="iframe"><img src="images/cart.png" width="50px" height="50px" style=" margin-left: 72px;"/></a>
+    <div class="col-sm-3">
+
+<nav class="navbar">
+ 
+    <ul class="nav">
+      <li class="dropdown">
+        <a href="login.html" style="padding-bottom: 0px; padding-top: 0px; padding-right: 0px; padding-left: 0px; width: 201px; height: 0px;">
+        <p style="font-family: sans-serif;font-size:medium;color:white;margin-left: 103px;margin-top: 35px;">Log In</p></a>
+        <ul class="dropdown-menu" style=" top: 23px;right: 0px;height: 80px;width: 60px;border-right-width: 0px;border-left-width: 0px;left: 71px;">
+          <li><a href="#"><button type="button" class="btn btn-link" data-toggle="modal" data-target="#myModal">Profile</button></a></li>
+          <li><a href="logout.html" style="margin-left: 0px;padding-left: 35px;">Logout</a></li>
+        </ul>
+      </li>
+    </ul>
+</nav>
+<a href="cart.html" target="iframe"><img src="images/cart.png" style="margin-left: 106px;" width="50px" height="50px" style=" margin-left: 72px;"/></a>
       </div></div>
 </div>
 <div class="container-fluid">
   <div class="row">
- 	   <div class="col-sm-2 sidenav">
-		 <ul class="list-group" >
+    <div class="col-sm-2 sidenav">
+		<ul class="list-group" >
   			<li class="list-group-item" style=" background-color:#0059b3;padding-left: 0px; padding-right: 0px;padding-top: 0px;padding-bottom: 0px;">
   				<button class="btn btn-link dropdown-toggle" type="button" data-toggle="dropdown" style="color:white;">Fruits&Vegtables</button>
     			<ul class="dropdown-menu">
        			     <li><a href="fruits.html"  target="iframe">Fruits</a></li>
-    				  <li><a href="#" target="">Vegtables</a></li>
+    				  <li><a href="vegtables.html" target="iframe">Vegtables</a></li>
     			</ul>
     		</li>
 			<li class="list-group-item" style="padding-left: 0px; padding-right: 0px;padding-top: 0px; background-color:#0059b3;padding-bottom: 0px;">
@@ -48,8 +63,8 @@
     			</ul>
     		</li>
     		</ul>
-			</div>
- 	  <div class="col-sm-10">
+    	</div>
+		    <div class="col-sm-10">
 		   <div  class="embed-responsive embed-responsive-16by9">
           			<iframe height="400px" width="50%" src="homepage.html" 
            name="iframe"></iframe>
@@ -57,7 +72,5 @@
          </div> 
         </div>
       </div>
-
-
 </body>
 </html>

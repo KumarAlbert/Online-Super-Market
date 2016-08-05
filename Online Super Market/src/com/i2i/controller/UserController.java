@@ -40,8 +40,10 @@ public class UserController {
 	PurchaseOrderService purchaseOrderService;
 	
 	private User user = null;
+	private Cart cart = null;
 	private List<Cart> cartList = null;
 	private List<Product> products = null;
+	private List<Product> productFilter = null;
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
     public ModelAndView saveUserData(@ModelAttribute("user") User user,
 		                        	   BindingResult result) { 
@@ -80,8 +82,8 @@ public class UserController {
 			}
 			}
 		} catch (ApplicationException e){
-			e.printStackTrace();
-		}
+			return new ModelAndView("loginFail");
+			}
 		return null;
 	}
 	@RequestMapping("/singleFruit")
@@ -101,14 +103,11 @@ public class UserController {
 	public ModelAndView saveCart(@RequestParam("quantity") int quantity,@RequestParam("productPrice") double price ,
 			@RequestParam("product") Object object) {
         try {
-        	int id = 0;
-        	id = user.getId();
-        	Cart cart = new Cart();
+        	cart = new Cart();
         	String name = object.toString();
             java.sql.Timestamp time = new java.sql.Timestamp(new java.util.Date().getTime());
             cart.setCreatedAt(time);
-            cart.setCreatedBy(id);
-        	System.out.println(name);
+            cart.setCreatedBy(000);
             Product product = productService.findProductByName(name);
             double total = quantity * price;
             cart.setTotalPrice(total);
@@ -118,7 +117,11 @@ public class UserController {
             carts.add(cart);
             product.setCarts(carts);
         	cartService.addCart(cart);
-        	return new ModelAndView("homePage");
+    		Map<String, Object> model = new HashMap<String, Object>();
+        	if("Fruits".equals(cart.getProduct().getSubcategory().getName())){
+        		model.put("productFilter", productFilter);
+        		return new ModelAndView("productFilter",model);
+        	}
         } catch (ApplicationException e) {
         	e.printStackTrace();
         }
@@ -143,7 +146,7 @@ public class UserController {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			System.out.println(cartId);
-			Cart cart = cartService.findCartById(cartId);
+			cart = cartService.findCartById(cartId);
 			cartService.removeCart(cart);
 			cartList = cartService.getCartDetails();
 			model.put("cart", cartList);
@@ -177,7 +180,7 @@ public class UserController {
 		int productStock ;
 		int modifiedBy = user.getId();
 		try {
-			purchaseOrderService.addPurchaseOrder(user, total, paymentType, status, createdBy);
+			purchaseOrderService.addPurchaseOrder(user, total, paymentType, status, createdBy,cartList);
 			for(Cart cart : cartList) {
 				product = cart.getProduct();
 				productName = product.getName();
@@ -372,17 +375,30 @@ public class UserController {
 	@RequestMapping("/fruits")
 	public ModelAndView redirectToFruits() {
 		Map<String, Object> model = new HashMap<String, Object>();
-		List<Product> fruits = new ArrayList<Product>();
+		productFilter = new ArrayList<Product>();
 		for(Product product : products) {
 			Subcategory subcategory = product.getSubcategory();
 			if("Fruits".equals(subcategory.getName())) {
-				fruits.add(product);
+				productFilter.add(product);
 			}
 		}
-		model.put("fruits", fruits);
-		return new ModelAndView("fruits",model);
+		model.put("productFilter", productFilter);
+		return new ModelAndView("productFilter",model);
 	}
 	
+	@RequestMapping("/vegtables")
+	public ModelAndView redirectToVegtables() {
+		Map<String, Object> model = new HashMap<String, Object>();
+		productFilter = new ArrayList<Product>();
+		for(Product product : products) {
+			Subcategory subcategory = product.getSubcategory();
+			if("Vegtables".equals(subcategory.getName())) {
+				productFilter.add(product);
+			}
+		}
+		model.put("productFilter", productFilter);
+		return new ModelAndView("productFilter",model);
+	}
 	@RequestMapping("/imageScroll")
 	public ModelAndView imageScroll() {
 		return new ModelAndView("imageScroll");
@@ -443,7 +459,7 @@ public class UserController {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			model.put("product",productService.getProductDetails());
-			return new ModelAndView("insertProduct");
+			return new ModelAndView("insertProduct",model);
 		} catch(ApplicationException e) {
 			
 		}

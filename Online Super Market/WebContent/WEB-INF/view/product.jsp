@@ -15,6 +15,7 @@
 function registerValidation() {
     var quantity = document.getElementById('quantity').value;
     var stock = document.getElementById('stock').value;
+    console.log("--------------",quantity,stock);
 	if(quantity <= stock){
 		return true;
 	}

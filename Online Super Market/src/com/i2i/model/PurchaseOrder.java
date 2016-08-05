@@ -187,4 +187,13 @@ public class PurchaseOrder {
 	public void setCarts(Set<Cart> carts) {
 		this.carts = carts;
 	}
+
+
+	@Override
+	public String toString() {
+		return "PurchaseOrder [id=" + id + ", total=" + total + ", paymentType=" + paymentType
+				+ ", status=" + status + ", createdAt=" + createdAt + ", modifiedAt=" + modifiedAt + ", createdBy="
+				+ createdBy + ", modifiedBy=" + modifiedBy + "]";
+	}
+	
 }

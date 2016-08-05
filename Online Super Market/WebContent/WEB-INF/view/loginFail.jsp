@@ -42,7 +42,9 @@
     		<form:input path="password" type="password" class="form-control"  placeholder="Enter your passsword"/>
   		</div>
   		<center style="width: 269px; "><button type="submit" class="btn btn-info">Submit</button>
-  		<button type="reset" class="btn btn-danger">reset</button></center>
+  		<button type="reset" class="btn btn-danger">reset</button>
+  		</center>
+  		<i style="color:red">The email and password you entered don't match. </i>
   		<label style="margin-left: 300px;">New User?  <a  href="register.html">Sign Up</a></label><p></p>
   	
 	</form:form>

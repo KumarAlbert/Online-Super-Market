@@ -12,6 +12,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.i2i.model.Product;
+import com.i2i.model.PurchaseOrder;
 import com.i2i.model.Cart;
 import com.i2i.service.ProductService;
 import com.i2i.dao.CartDao;
@@ -52,6 +53,9 @@ public class CartService {
 		return cartDao.updateCart(cart);
 	}
 	
+	public boolean modifyCart(Cart cart) throws ApplicationException {
+		return cartDao.updateCart(cart);
+	}
 	public boolean removeCart(Cart cart) throws ApplicationException {
 		return cartDao.deleteCart(cart);
 	}

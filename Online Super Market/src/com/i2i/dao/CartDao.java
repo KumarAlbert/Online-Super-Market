@@ -95,6 +95,7 @@ public class CartDao extends GenericDao{
         Transaction transaction = null;
         try {
         	openSession();
+        	System.out.println(cart);
             transaction = session.beginTransaction();
             session.update(cart); 
             transaction.commit();

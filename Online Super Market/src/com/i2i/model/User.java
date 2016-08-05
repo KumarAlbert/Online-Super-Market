@@ -22,7 +22,7 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private String email;
-	private long mobileNumber;
+	private String mobileNumber;
 	private String password;
 	private String address;
 	private Timestamp createdAt;
@@ -48,7 +48,7 @@ public class User {
 	 * @param modifiedBy
 	 * @param modifiedAt
 	 */
-	public User(String firstName, String lastName, String email, long mobileNumber, String password, String address,
+	public User(String firstName, String lastName, String email, String mobileNumber, String password, String address,
 			int createdBy, Timestamp createdAt, int modifiedBy, Timestamp modifiedAt) {
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -74,7 +74,7 @@ public class User {
 	 * @param modifiedAt
 	 * @param purchaseOrders
 	 */
-	public User(String firstName, String lastName, String email, long mobileNumber, String password, String address,
+	public User(String firstName, String lastName, String email, String mobileNumber, String password, String address,
 			int createdBy, Timestamp createdAt, int modifiedBy, Timestamp modifiedAt, Set<PurchaseOrder> purchaseOrders) {
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -102,7 +102,7 @@ public class User {
 	 * @param purchaseOrders
 	 * @param roles
 	 */
-	public User(String firstName, String lastName, String email, long mobileNumber, String password, String address,
+	public User(String firstName, String lastName, String email, String mobileNumber, String password, String address,
 			int createdBy, Timestamp createdAt, int modifiedBy, Timestamp modifiedAt, Set<PurchaseOrder> purchaseOrders,
 			Set<Role> roles) {
 		this.firstName = firstName;
@@ -149,11 +149,11 @@ public class User {
 		this.email = email;
 	}
 
-	public long getMobileNumber() {
+	public String getMobileNumber() {
 		return mobileNumber;
 	}
 
-	public void setMobileNumber(long mobileNumber) {
+	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 
