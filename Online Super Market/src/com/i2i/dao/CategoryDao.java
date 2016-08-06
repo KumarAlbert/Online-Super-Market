@@ -9,13 +9,12 @@ import org.hibernate.HibernateException;
 import org.hibernate.SQLQuery;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
-import org.hibernate.Session; 
-
 
 import com.i2i.model.Category;
-import com.i2i.model.User;
 import com.i2i.exception.ApplicationException;
 /**
+ * <h1>CategoryDao</h1>
+ * <p>Performs all user related database tasks using hibernate.<p>
  * @author Mukilan.K
  *
  * @version 1.0
@@ -23,13 +22,23 @@ import com.i2i.exception.ApplicationException;
 @Repository ("categoryDao")
 public class CategoryDao extends GenericDao {
 
-    public void insertCategory(Category category) throws ApplicationException { 
+	/**
+	 * Inserts category details into database.
+	 * @param category
+	 *     category object that has to be inserted into database.
+     * @return True
+     *     If category object is inserted.	
+     * @throws ApplicationException
+	 *     If there is any interruption occurred in the database.
+	 */
+    public boolean insertCategory(Category category) throws ApplicationException { 
         Transaction transaction = null;
         try {
         	openSession();
             transaction = session.beginTransaction();
             session.save(category);
             transaction.commit();
+            return true;
         } catch (HibernateException e) {
             throw new ApplicationException("Some error occured while inserting details of category: "
                                             +category.getName(),e);
@@ -38,10 +47,16 @@ public class CategoryDao extends GenericDao {
         }
     }
     
-    public List<Category> retrieveCategoryDetails() throws ApplicationException {
+    /**
+     * Retrieves the category list present in the database.
+     * @return List<Category>
+     *     List of category objects to be returned.
+     * @throws ApplicationException
+     *     If there is any interruption occurred in the database.
+     */
+	public List<Category> retrieveCategoryDetails() throws ApplicationException {
         try {
         	openSession();
-        	System.out.println("inside view all category");
             return session.createQuery("FROM Category").list(); 
         } catch (HibernateException e) {
             throw new ApplicationException("Some error occured while listing the details of all categories",e); 
@@ -50,7 +65,16 @@ public class CategoryDao extends GenericDao {
         }
     }
     
-    public Category searchCategoryByName(String name) throws ApplicationException {
+    /**
+     * Retrieves Category object for the given name.
+     * @param name
+     *     name of the category to be found.
+     * @return Category
+     *     category object to be retrieved.
+     * @throws ApplicationException
+     *     If there is any interruption occurred in the database.
+     */
+	public Category searchCategoryByName(String name) throws ApplicationException {
         try {
         	openSession();
         String sql = "SELECT * FROM Category WHERE name = :name";
@@ -70,6 +94,15 @@ public class CategoryDao extends GenericDao {
         return null;
     }
     
+    /**
+     * Updates the category object into the database.
+     * @param category
+     *     category object to be updated.
+     * @return True
+     *     If category object is updated.
+     * @throws ApplicationException
+     *     If there is any interruption occurred in the database.
+     */
     public boolean updateCategory(Category category) throws ApplicationException {
         Transaction transaction = null;
         try {
@@ -86,6 +119,15 @@ public class CategoryDao extends GenericDao {
         }
     }
     
+    /**
+     * Deletes entire category object from the database.
+     * @param category
+     *     category object to be deleted.
+     * @return True 
+     *     If category object is deleted.
+     * @throws ApplicationException
+     *     If there is any interruption occurred in the database.
+     */
     public boolean deleteCategory(Category category) throws ApplicationException {
         Transaction transaction = null;
         try {

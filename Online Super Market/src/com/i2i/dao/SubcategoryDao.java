@@ -9,12 +9,12 @@ import org.hibernate.HibernateException;
 import org.hibernate.SQLQuery;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
-import org.hibernate.Session;
 
 import com.i2i.model.Subcategory;
 import com.i2i.exception.ApplicationException;
 /**
- * <p> 
+ * <h1>SubcategoryDao</h1>
+ * <p>Performs all subcategory related database tasks using hibernate.<p>
  * @author Mukilan.K
  *
  * @version 1.0
@@ -22,6 +22,15 @@ import com.i2i.exception.ApplicationException;
 @Repository("subcategoryDao")
 public class SubcategoryDao extends GenericDao {
 
+	/**
+	 * Inserts subcategory details into database.
+	 * @param subcategory
+	 *     subcategory object that has to be inserted into database.
+     * @return True
+     *     If subcategory object is inserted.	
+     * @throws ApplicationException
+	 *     If there is any interruption occurred in the database.
+	 */
     public boolean insertSubcategory(Subcategory subcategory) throws ApplicationException {
         Transaction transaction = null;
         try {
@@ -38,6 +47,13 @@ public class SubcategoryDao extends GenericDao {
         }
     }
     
+    /**
+     * Retrieves the subcategory list present in the database.
+     * @return List<Subcategory>
+     *     List of subcategory objects to be returned.
+     * @throws ApplicationException
+     *     If there is any interruption occurred in the database.
+     */ 
     public List<Subcategory> retrieveSubcategoryDetails() throws ApplicationException {
         try {
         	openSession();
@@ -49,6 +65,15 @@ public class SubcategoryDao extends GenericDao {
         }
     }
     
+    /**
+     * Retrieves subcategory object for the given name.
+     * @param name
+     *     name of the subcategory to be found.
+     * @return subcategory
+     *     subcategory object to be retrieved.
+     * @throws ApplicationException
+     *     If there is any interruption occurred in the database.
+     */
     public Subcategory searchSubcategoryByName(String name) throws ApplicationException {
         try {  
         	openSession();
@@ -69,6 +94,15 @@ public class SubcategoryDao extends GenericDao {
         return null; 
     }
     
+    /**
+     * Updates the subcategory object into the database.
+     * @param subcategory
+     *     subcategory object to be updated.
+     * @return True
+     *     If subcategory object is updated.
+     * @throws ApplicationException
+     *     If there is any interruption occurred in the database.
+     */
     public boolean updateSubcategory(Subcategory subcategory) throws ApplicationException {
         Transaction transaction = null;
         try {
@@ -85,6 +119,15 @@ public class SubcategoryDao extends GenericDao {
         }
     }
     
+    /**
+     * Deletes entire subcategory object from the database.
+     * @param subcategory
+     *     subcategory object to be deleted.
+     * @return True 
+     *     If subcategory object is deleted.
+     * @throws ApplicationException
+     *     If there is any interruption occurred in the database.
+     */  
     public boolean deleteSubcategory(Subcategory subcategory) throws ApplicationException {
         Transaction transaction = null;
         try {

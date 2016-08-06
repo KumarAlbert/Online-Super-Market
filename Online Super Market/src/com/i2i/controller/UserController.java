@@ -196,6 +196,15 @@ public class UserController {
 		return null;
 	}
 	
+	/**
+	 * This method gets the category details to be inserted.
+	 * @param name 
+	 *    Name of the category.
+	 * @return insertSubCategory
+	 *    Redirects to insert Subcategory page.
+     * @throws ApplicationException
+     *     If there is any interruption occurred in the database.
+	 */
 	@RequestMapping(value="/categoryInsert",method = RequestMethod.POST)
 	public ModelAndView insertCategory(@RequestParam("categoryName") String name) {
 		try {
@@ -207,6 +216,17 @@ public class UserController {
 		 return new ModelAndView("insertSubcategory");
 	}
 	
+	/**
+	 * This method gets the subcategory details to be inserted.
+	 * @param name 
+	 *    Name of the category.
+	 * @param subcategoryName 
+	 *    Name of the subcategory.
+	 * @return insertProduct
+	 *    Redirects to insert product page.
+     * @throws ApplicationException
+     *     If there is any interruption occurred in the database.
+	 */
 	@RequestMapping(value="/subcategoryInsert",method = RequestMethod.POST)
 	public ModelAndView insertSubcategory(@RequestParam("categoryName") String categoryName, 
 		                           @RequestParam("subcategoryName") String subcategoryName) {
@@ -219,6 +239,25 @@ public class UserController {
 		return new ModelAndView("insertProduct");
 	} 
 
+	/**
+	 * This method gets the product details to be inserted.
+	 * @param subcategoryName 
+	 *    Name of the subcategory.
+	 * @param productName 
+	 *    Name of the product.
+	 * @param description 
+	 *    Description of the product.
+	 * @param imageurl 
+	 *    imageurl of the product.
+	 * @param stock 
+	 *    stock of the product.
+	 * @param price 
+	 *    price of the product.
+	 * @return insertCategory
+	 *    Redirects to insert category page.
+     * @throws ApplicationException
+     *     If there is any interruption occurred in the database.
+	 */
 	@RequestMapping(value="/productInsert",method = RequestMethod.POST)
 	public ModelAndView insertProduct(@RequestParam("subcategoryName") String subcategoryName, @RequestParam("productName") String name,
 		                          @RequestParam("description") String description, @RequestParam("imageUrl") String imageUrl,
@@ -232,6 +271,13 @@ public class UserController {
 		return new ModelAndView("insertCategory");
 	} 
 	
+	/**
+	 * This method lists the category details.
+	 * @return viewCategories
+	 *    Redirects to viewCategories page.
+     * @throws ApplicationException
+     *     If there is any interruption occurred in the database.
+	 */
 	@RequestMapping(value="/viewCategories")
 	public ModelAndView viewCategories() {
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -244,6 +290,13 @@ public class UserController {
 		return new ModelAndView("viewCategories", model);
 	}
 	
+	/**
+	 * This method lists the subcategory details.
+	 * @return viewSubcategories
+	 *    Redirects to viewSubcategories page.
+     * @throws ApplicationException
+     *     If there is any interruption occurred in the database.
+	 */
 	@RequestMapping(value="/viewSubcategories")
 	public ModelAndView viewSubcategories() {
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -256,6 +309,13 @@ public class UserController {
 		return new ModelAndView("viewSubcategories", model);
 	}
 	
+	/**
+	 * This method lists the product details.
+	 * @return viewProducts
+	 *    Redirects to viewProducts page.
+     * @throws ApplicationException
+     *     If there is any interruption occurred in the database.
+	 */
 	@RequestMapping(value="/viewProducts")
 	public ModelAndView viewProducts() {
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -268,6 +328,17 @@ public class UserController {
 		return new ModelAndView("viewProducts", model);
 	}
 	
+	/**
+	 * This method updates the category details.
+	 * @param oldName 
+	 *    Existing name of the category.
+	 * @param newName 
+	 *    Name of the category to be updated.
+	 * @return insertCategory
+	 *    Redirects to insert category page.
+     * @throws ApplicationException
+     *     If there is any interruption occurred in the database.
+	 */
 	@RequestMapping(value="/categoryUpdate",method = RequestMethod.POST)
 	public ModelAndView updateCategory(@RequestParam("existingCategoryName") String oldName, 
 		                           @RequestParam("categoryName") String newName) {
@@ -282,6 +353,17 @@ public class UserController {
 		return null;
 	} 
 
+	/**
+	 * This method updates the subcategory details.
+	 * @param oldName 
+	 *    Existing name of the subcategory.
+	 * @param newName 
+	 *    Name of the subcategory to be updated.
+	 * @return insertSubCategory
+	 *    Redirects to insert Subcategory page.
+     * @throws ApplicationException
+     *     If there is any interruption occurred in the database.
+	 */
 	@RequestMapping(value="/subcategoryUpdate",method = RequestMethod.POST)
 	public ModelAndView updateSubcategory(@RequestParam("existingSubcategoryName") String oldName, 
 		                           @RequestParam("subCategoryName") String newName) {
@@ -293,6 +375,20 @@ public class UserController {
 		}
 		return new ModelAndView("insertCategory");
 	} 
+	
+	/**
+	 * This method updates the product details.
+	 * @param name 
+	 *    Name of the product.
+	 * @param newValue 
+	 *    Product details to be updated.
+	 * @param choice 
+	 *    Property of the product which is chosen. 
+	 * @return insertProduct
+	 *    Redirects to insert product page.
+     * @throws ApplicationException
+     *     If there is any interruption occurred in the database.
+	 */
 	@RequestMapping(value="/productUpdate",method = RequestMethod.POST)
 	public ModelAndView updateProduct(@RequestParam("productName") String name, @RequestParam("newValue") String newValue,
 		                          @RequestParam("choice") String choice) {
@@ -323,6 +419,15 @@ public class UserController {
     return new ModelAndView("insertProduct");
 	}
 	
+	/**
+	 * This method deletes the category by its name.
+	 * @param name
+	 *    Name of the category to be deleted.
+	 * @return updateCategory
+	 *    Redirects to update category page.
+     * @throws ApplicationException
+     *     If there is any interruption occurred in the database.
+	 */
 	@RequestMapping(value="/categoryDelete",method = RequestMethod.POST)
 	public ModelAndView deleteCategory(@RequestParam("categoryName") String name) {
 		try {
@@ -333,6 +438,15 @@ public class UserController {
 		return new ModelAndView("updateCategory");
 	}
 
+	/**
+	 * This method deletes the subcategory by its name.
+	 * @param name
+	 *    Name of the subcategory to be deleted.
+	 * @return updateSubcategory
+	 *    Redirects to update subcategory page.
+     * @throws ApplicationException
+     *     If there is any interruption occurred in the database.
+	 */
 	@RequestMapping(value="/subcategoryDelete",method = RequestMethod.POST)
 	public ModelAndView deleteSubcategory(@RequestParam("name") String name) {	
 		try {
@@ -343,6 +457,15 @@ public class UserController {
 		return new ModelAndView("updateSubcategory");
 	}	
 
+	/**
+	 * This method deletes the product by its name.
+	 * @param name
+	 *    Name of the product to be deleted.
+	 * @return insertProduct
+	 *    Redirects to update insertProduct page.
+     * @throws ApplicationException
+     *     If there is any interruption occurred in the database.
+	 */
 	@RequestMapping(value="/productDelete",method = RequestMethod.POST)
 	public ModelAndView deleteProduct(@RequestParam("productName") String name) {
 		try {
@@ -361,7 +484,6 @@ public class UserController {
 	@RequestMapping("/login")
 	public ModelAndView redirect(@ModelAttribute("user") User user,
 			BindingResult result) {
-		System.out.println(userService);
 		return new ModelAndView("login");
 	}
 	
@@ -442,6 +564,7 @@ public class UserController {
 		}
 		return null;
 	}
+
 	@RequestMapping("/redirectSubcategoryInsert")
 	public ModelAndView redirectToSubcategoryInsert() {
 		Map<String, Object> model = new HashMap<String, Object>();

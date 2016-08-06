@@ -12,33 +12,35 @@ import org.hibernate.Session;
 import com.i2i.exception.ApplicationException;
 import com.i2i.logger.Logger;
 /**
- * <h1>GenericDao</h1>
- *     This class handles the hibernate connections for all Dao classes.
+ * This class handles the hibernate connections for all Dao classes.
  * @author  Mukilan.K
- * @since   2016-06-28
+ * @version 1.0
  */
 
 public class GenericDao {
+	
     protected static SessionFactory sessionFactory = null;
 	protected static Session session = null;
 
-    
     static {
     	startSessionFactory();
     }
     
+    /**
+     * Static method configures hibernate and create session factory.
+     */
 	public static void startSessionFactory()  {
 		try {
         	sessionFactory =  new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
 		} catch (HibernateException e){
-            
+        	Logger.writeLog(e);
 		}
 	}
 	
 
-  /**
-    * This method closees the session factory when it is not null.
-    */
+    /**
+     * This method closees the session factory when it is not null.
+     */
     protected static void endSessionFactory() throws ApplicationException {
         if (null != sessionFactory) {
             try {
@@ -50,12 +52,15 @@ public class GenericDao {
         }
     }
 
-
+    /**
+     * Creates session when session factory is not null.
+     */
     protected void openSession() {
         if (null != sessionFactory) {
         	session = sessionFactory.openSession();
         }
     }
+    
     /**
      * This method is used to close the session.
      * @throws ApplicationException

@@ -5,7 +5,6 @@ package com.i2i.dao;
 
 import java.util.List;
 
-
 import org.hibernate.HibernateException;
 import org.hibernate.SQLQuery;
 import org.hibernate.Transaction;
@@ -16,6 +15,8 @@ import com.i2i.model.User;
 
 import com.i2i.exception.ApplicationException;
 /**
+ * <h1>UserDao</h1>
+ * <p>Performs all user related database tasks using hibernate.<p>
  * @author Mukilan.K
  *
  * @version 1.0
@@ -23,6 +24,15 @@ import com.i2i.exception.ApplicationException;
 @Repository("userDao")
 public class UserDao extends GenericDao{
 
+	/**
+	 * Inserts user details into database.
+	 * @param user
+	 *     product object that has to be inserted into database.
+     * @return True
+     *     If user object is inserted.	
+     * @throws ApplicationException
+	 *     If there is any interruption occurred in the database.
+	 */
     public boolean insertUser(User user) throws ApplicationException {
         Transaction transaction = null;
         try {
@@ -41,6 +51,13 @@ public class UserDao extends GenericDao{
         }
     }
     
+    /**
+     * Retrieves the user list present in the database.
+     * @return List<User>
+     *     List of user objects to be returned.
+     * @throws ApplicationException
+     *     If there is any interruption occurred in the database.
+     */
     public List<User> retrieveUserDetails() throws ApplicationException {
         Transaction transaction = null;
         try {
@@ -58,6 +75,15 @@ public class UserDao extends GenericDao{
         }
     }
     
+    /**
+     * Validates user from the given user object.
+     * @param user
+     *     user object to be checked.
+     * @return user
+     *     user object to be retrieved.
+     * @throws ApplicationException
+     *     If there is any interruption occurred in the database.
+     */
     public User searchUser(User user) throws ApplicationException {
         Transaction transaction = null;
         try { 
@@ -77,42 +103,9 @@ public class UserDao extends GenericDao{
                                             +user.getEmail(),e); 
         } catch (IndexOutOfBoundsException e) {
             throw new ApplicationException("Some error occured while viewing details of "
-                    +user.getEmail(),e); 
+                                            +user.getEmail(),e); 
            } finally {
         	   closeSession(session);
         }  
     }
-    
-  /*  public boolean updateUser(User user) throws ApplicationException {
-        Session session = createSession();
-        Transaction transaction = null;
-        try {
-            transaction = session.beginTransaction();
-            session.update(user); 
-            transaction.commit();
-            return true;
-        } catch (HibernateException e) {
-            throw new ApplicationException("Some error occured while updating details of "+ 
-                                           user.getFirstName(),e); 
-        } finally {
-            closeSession(session); 
-        }org.hibernate.transaction.JDBCTransaction@456c0603
-
-    }
-    
-    public boolean deleteUser(User user) throws ApplicationException {
-        Session session = createSession();
-        Transaction transaction = null;
-        try {
-            transaction = session.beginTransaction();
-            session.delete(user); 
-            transaction.commit();
-            return true;
-        } catch (HibernateException e) {
-            throw new ApplicationException("Some error occured while deleting the details of "+
-                                            user.getFirstName(),e); 
-        } finally {
-            closeSession(session); 
-        }	
-    }*/
 }
