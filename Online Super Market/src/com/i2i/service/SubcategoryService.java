@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.i2i.service;
 
 import java.sql.Timestamp;
@@ -14,13 +11,11 @@ import com.i2i.model.Subcategory;
 import com.i2i.service.CategoryService;
 import com.i2i.dao.SubcategoryDao;
 import com.i2i.exception.ApplicationException;
+
 /**
- * @author Kumar Albert
- *
- * version 1.0
+ * <h1> Subcategory Service</h1>
+ * <p> It provide subcategory related services </p>
  * 
- */
-/**
  * @author Kumar Albert
  *
  * version 1.0
@@ -36,15 +31,14 @@ public class SubcategoryService {
 	@Autowired
 	SubcategoryDao subcategoryDao;
 
-	
 	/**
-	 * @param name
-	 * @param createdBy
-	 * @param createdAt
-	 * @param modifiedBy
-	 * @param modifiedAt
-	 * @return boolean
-	 *             If Boolean value is true , record added successfully. Otherwise record didn't added.
+	 * <p> This method used to add subcategory.</p>
+	 * @param categoryName It holds category name.
+	 * @param subcategoryName It holds subcategory name.
+	 * @param createdBy It holds id of who create subcategory record.
+	 * @return boolean If Boolean value is true , record added successfully. 
+	 * 					Otherwise record not added.
+	 * @throws ApplicationException
 	 */
 	public boolean addSubcategory(String categoryName,String subcategoryName , int createdBy) throws ApplicationException {
 		Category category = categoryService.findCategoryByName(categoryName);
@@ -55,19 +49,21 @@ public class SubcategoryService {
 		return subcategoryDao.insertSubcategory(subcategory);
 	}
 	
-	
 	/**
-	 * @return List<Subcategory>
-	 *            It return Subcategory details.
+	 * <p> This method used to get subcategory list.</p>
+	 * @return List It returns subcategory list. 
+	 * @throws ApplicationException
 	 */
 	public List<Subcategory> getSubcategoryDetails() throws ApplicationException {
 		return subcategoryDao.retrieveSubcategoryDetails();		
 	}
 	
+
 	/**
-	 * @param name
-	 * @return Subcategory
-	 *             Subcategory holds required subcategory details.
+	 * <p> This method used to find subcategory.</p>
+	 * @param name It holds subcategory name.
+	 * @return subcategory It returns subcategory object.
+	 * @throws ApplicationException
 	 */
 	public Subcategory findSubcategoryByName(String name) throws ApplicationException{
 		return subcategoryDao.searchSubcategoryByName(name);
@@ -75,12 +71,13 @@ public class SubcategoryService {
 	
 	
 	/**
-	 * @param oldName
-	 * @param newName
-	 * @param modifiedBy
-	 * @param modifiedAt
-	 * @return boolean
-	 *             If Boolean value is true , record modified successfully. Otherwise record didn't modified.
+	 * <p> This method used to modify subcategory's name. </p>
+	 * @param oldName It holds subcategory oldName.
+	 * @param newName It holds subcategory newName.
+	 * @param modifiedBy It holds id of who modify subcategory record.
+	 * @return boolean If Boolean value is true , record added successfully.
+	 *           		Otherwise record not added. 
+	 * @throws ApplicationException
 	 */
 	public boolean modifySubcategoryNameByName(String oldName, String newName, int modifiedBy) throws ApplicationException {
 		Subcategory subcategory = subcategoryDao.searchSubcategoryByName(oldName);
@@ -90,11 +87,13 @@ public class SubcategoryService {
         subcategory.setModifiedAt(modifiedAt);
 		return subcategoryDao.updateSubcategory(subcategory);
 	}
-	
+
 	/**
-	 * @param name
-	 * @return boolean
-	 *             If Boolean value is true , record removed successfully. Otherwise record didn't removed.
+	 * <p> This method used to remove subcategory. </p> 
+	 * @param name It holds subcategory's name.
+	 * @return boolean If Boolean value is true , record added successfully.
+	 *           		Otherwise record not added.
+	 * @throws ApplicationException
 	 */
 	public boolean removeSubcategoryByName(String name) throws ApplicationException {
 		Subcategory subcategory = subcategoryDao.searchSubcategoryByName(name);

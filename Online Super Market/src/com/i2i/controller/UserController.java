@@ -44,6 +44,13 @@ public class UserController {
 	private List<Cart> cartList = null;
 	private List<Product> products = null;
 	private List<Product> productFilter = null;
+	
+	/**
+	 * <p> This method user to save user data.</p>
+	 * @param user It holds user object.
+	 * @param result It holds result of request page. 
+	 * @return ModelAndView It returns model for response.
+	 */
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
     public ModelAndView saveUserData(@ModelAttribute("user") User user,
 		                        	   BindingResult result) { 
@@ -62,8 +69,14 @@ public class UserController {
 	return new ModelAndView("login");
 	} 
 	
+	/**
+	 * <p> This method used to check user for login</p>  
+	 * @param userFromLogin It holds user details from request page.
+	 * @param result It holds result of request page.
+	 * @return ModelAndView It returns model for response.
+	 */
 	@RequestMapping("/checkUser")
-	public ModelAndView getUser(@ModelAttribute("user") User userFromLogin,
+	public ModelAndView checkUser(@ModelAttribute("user") User userFromLogin,
      	   BindingResult result)  {
 		try {
 			System.out.println("controller");
@@ -86,12 +99,18 @@ public class UserController {
 			}
 		return null;
 	}
-	@RequestMapping("/singleFruit")
-	public ModelAndView getBanana(@RequestParam("fruit") String fruit) {
+	
+	/**
+	 * <p> This method used to get product details.</p>
+	 * @param productName It holds product's name.
+	 * @return ModelAndView It returns model for response.
+	 */
+	@RequestMapping("/singleProduct")
+	public ModelAndView getProduct(@RequestParam("productName") String productName) {
 		System.out.println(productService);
 		try {
 			Map<String, Object> model = new HashMap<String, Object>();
-			Product product = productService.findProductByName(fruit);
+			Product product = productService.findProductByName(productName);
         	model.put("product", product);
 			return new ModelAndView("product",model);
 		} catch (ApplicationException e){
@@ -99,6 +118,13 @@ public class UserController {
 		return null;
 	}
 	
+	/**
+	 * <p> This method used to save cart details.</p>
+	 * @param quantity It holds product quantity.
+	 * @param price It holds product price.
+	 * @param object It holds product object.
+	 * @return ModelAndView It returns model for response.
+	 */
 	@RequestMapping(value= "/saveCart", method = RequestMethod.POST)
 	public ModelAndView saveCart(@RequestParam("quantity") int quantity,@RequestParam("productPrice") double price ,
 			@RequestParam("product") Object object) {
@@ -128,6 +154,10 @@ public class UserController {
         return null;
 	}
 	
+	/**
+	 * <p> This method is used to get cart details.</p>
+	 * @return ModelAndView It returns model for response.
+	 */
 	@RequestMapping("/cart")
 	public ModelAndView getCart() {
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -141,6 +171,11 @@ public class UserController {
 		return null;
 	}
 	
+	/**
+	 * <p> This method used to remove cart.</p>
+	 * @param cartId It holds cart id. 
+	 * @return ModelAndView It returns model for response.
+	 */
 	@RequestMapping("/removeCart")
 	public ModelAndView removeCart(int cartId) {
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -157,6 +192,10 @@ public class UserController {
 		return null;
 	}
 	
+	/**
+	 * <p> This method used to place the order</p>
+	 * @return ModelAndView It returns model for response.
+	 */
 	@RequestMapping("/order")
 	public ModelAndView placeOrder() {
 		double total = 0;
@@ -170,6 +209,12 @@ public class UserController {
 		return new ModelAndView("placeOrder",model);
 	}
 	
+	/**
+	 * <p> This method is used to confirm the order.</p> 
+	 * @param total It holds total price of order.
+	 * @param paymentType It holds payment type of order.
+	 * @return ModelAndView It returns model for response.
+	 */
 	@RequestMapping("/confirmOrder")
 	public ModelAndView confirmOrder(@RequestParam("total") double total,@RequestParam("paymentType") String paymentType) {
 		Boolean status = true;
@@ -477,16 +522,29 @@ public class UserController {
 		return new ModelAndView("insertProduct");
 	}
 
-
-
-
+	/**
+	 * <h1> Redirection pages </h1>
+	 */
 	
+	/**
+	 * <p> This method used to redirect the request to login page.</p>
+	 * @param user It holds user object.
+	 * @param result It holds result of request page.
+	 * @return ModelAndView It returns model for response.
+	 */
 	@RequestMapping("/login")
-	public ModelAndView redirect(@ModelAttribute("user") User user,
+	public ModelAndView redirectToLogin(@ModelAttribute("user") User user,
 			BindingResult result) {
+		System.out.println(userService);
 		return new ModelAndView("login");
 	}
 	
+	/**
+	 * <p> This method used redirect the request to register page </p>
+	 * @param user It holds user object.
+	 * @param result It holds result of request page.
+	 * @return ModelAndView It returns model for response.
+	 */
 	@RequestMapping("/register")
 	public ModelAndView redirectToRegister(@ModelAttribute("user") User user,
 			BindingResult result) {
@@ -494,6 +552,10 @@ public class UserController {
 		return new ModelAndView("register");
 	}
 	
+	/**
+	 * <p> This method used redirect the request to product filter page </p>
+	 * @return ModelAndView It returns model for response.
+	 */
 	@RequestMapping("/fruits")
 	public ModelAndView redirectToFruits() {
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -508,6 +570,10 @@ public class UserController {
 		return new ModelAndView("productFilter",model);
 	}
 	
+	/**
+	 * <p> This method used redirect the request to product filter page </p>
+	 * @return ModelAndView It returns model for response.
+	 */	
 	@RequestMapping("/vegtables")
 	public ModelAndView redirectToVegtables() {
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -521,17 +587,34 @@ public class UserController {
 		model.put("productFilter", productFilter);
 		return new ModelAndView("productFilter",model);
 	}
+	
+	/**
+	 * <p> This method used redirect the request to image scroll page </p>
+	 * @return ModelAndView It returns model for response.
+	 */
 	@RequestMapping("/imageScroll")
 	public ModelAndView imageScroll() {
 		return new ModelAndView("imageScroll");
 	}
 	
+	/**
+	 * <P> This method used redirect the request to home page </p>
+	 * @param user It holds user object.
+	 * @param result It holds result of request page.
+	 * @return ModelAndView It returns model for response.
+	 */
 	@RequestMapping("/homepage")
 	public ModelAndView homePage(@ModelAttribute("user") User user,
 			BindingResult result) {
 		return new ModelAndView("homePage");
 	}
 	
+	/**
+	 * <p>This method used redirect the request to user home page </p>
+	 * @param user It holds user object.
+	 * @param result It holds result of request page.
+	 * @return ModelAndView It returns model for response.
+	 */
 	@RequestMapping("/userHome")
 	public ModelAndView userHomeForAdmin(@ModelAttribute("user") User user,
 			BindingResult result) {
@@ -540,6 +623,12 @@ public class UserController {
 		return new ModelAndView("userHome",model);
 	}
 	
+	/**
+	 * <p> This method used to redirect to home page.</p>
+	 * @param user It holds user object.
+	 * @param result It holds result of request page.
+	 * @return ModelAndView It returns model for response.
+	 */
 	@RequestMapping("/home")
 	public ModelAndView gethome(@ModelAttribute("user") User user,
 			BindingResult result) {
@@ -552,7 +641,10 @@ public class UserController {
 		return null;
 	}
 	
-
+	/**
+	 * <p> This method used to redirect request to category insert.</p>
+	 * @return ModelAndView It returns model for response.
+	 */
 	@RequestMapping("/redirectCategoryInsert")
 	public ModelAndView redirectToCategoryInsert() {
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -564,7 +656,11 @@ public class UserController {
 		}
 		return null;
 	}
-
+	
+	/**
+	 * <p>This method used to redirect request to insert subcategory</p>
+	 * @return ModelAndView It returns model for response.
+	 */
 	@RequestMapping("/redirectSubcategoryInsert")
 	public ModelAndView redirectToSubcategoryInsert() {
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -577,6 +673,10 @@ public class UserController {
 		return null;
 	}
 	
+	/**
+	 * <p>This method used to redirect request to insert product</p>
+	 * @return ModelAndView It returns model for response.
+	 */
 	@RequestMapping("/redirectProductInsert")
 	public ModelAndView redirectToProductInsert() {
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -588,6 +688,11 @@ public class UserController {
 		}
 		return null;
 	}
+	
+	/**
+	 * <p>This method used to redirect request to update category</p>
+	 * @return ModelAndView It returns model for response.
+	 */
 	@RequestMapping("/redirectCategoryUpdate")
 	public ModelAndView redirectToCategoryUpdate() {
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -600,6 +705,10 @@ public class UserController {
 		return null;
 	}
 	
+	/**
+	 * <p>This method used to redirect request to update subcategory</p>
+	 * @return ModelAndView It returns model for response.
+	 */
 	@RequestMapping("/redirectSubcategoryUpdate")
 	public ModelAndView redirectToSubcategoryUpdate() {
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -612,6 +721,10 @@ public class UserController {
 		return null;
 	}
 	
+	/**
+	 * <p>This method used to redirect request to update product</p>
+	 * @return ModelAndView It returns model for response.
+	 */
 	@RequestMapping("/redirectProductUpdate")
 	public ModelAndView redirectToProductUpdate() {
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -624,6 +737,10 @@ public class UserController {
 		return null;
 	}
 	
+	/**
+	 * <p>This method used to redirect request to delete category</p>
+	 * @return ModelAndView It returns model for response.
+	 */
 	@RequestMapping("/redirectCategoryDelete")
 	public ModelAndView redirectToCategoryDelete() {
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -636,6 +753,10 @@ public class UserController {
 		return null;
 	}
 	
+	/**
+	 * <p>This method used to redirect request to delete subcategory</p>
+	 * @return  ModelAndView It returns model for response.
+	 */
 	@RequestMapping("/redirectSubcategoryDelete")
 	public ModelAndView redirectToSubcategoryDelete() {
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -648,6 +769,10 @@ public class UserController {
 		return null;
 	}
 	
+	/**
+	 * <p>This method used to redirect request to delete product</p>
+	 * @return  ModelAndView It returns model for response.
+	 */
 	@RequestMapping("/redirectProductDelete")
 	public ModelAndView redirectToProductDelete() {
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -660,10 +785,14 @@ public class UserController {
 		return null;
 	}
 	
+	/**
+	 * <p> This method used to redirect to logout page.</p>
+	 * @return ModelAndView It returns model for response.
+	 */
 	@RequestMapping("/logout")
 	public ModelAndView logout() {
 		user = null;
-		return new ModelAndView("home");
+		return new ModelAndView("userHome");
 	}
 	
 	

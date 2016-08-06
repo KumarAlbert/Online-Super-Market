@@ -54,6 +54,7 @@ public class CategoryDao extends GenericDao {
      * @throws ApplicationException
      *     If there is any interruption occurred in the database.
      */
+	@SuppressWarnings("unchecked")
 	public List<Category> retrieveCategoryDetails() throws ApplicationException {
         try {
         	openSession();
@@ -74,6 +75,7 @@ public class CategoryDao extends GenericDao {
      * @throws ApplicationException
      *     If there is any interruption occurred in the database.
      */
+	@SuppressWarnings("unchecked")
 	public Category searchCategoryByName(String name) throws ApplicationException {
         try {
         	openSession();
